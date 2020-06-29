@@ -16,7 +16,7 @@ export default function Home() {
                         skórzanego akcesoria dla swojego pupila, <br/>
                         to jesteś w odpowiednim miejscu!
                     </h2>
-                    <Button> <a href="#">Sprawdź!</a> </Button>
+                    <Button> <a href="/home">Sprawdź!</a> </Button>
                 </div>
                 <div className="social-media">
                         <span className="socialmedia-container" ><img src={fb} alt="facebook_logo" ></img></span>
