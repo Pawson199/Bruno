@@ -8,9 +8,9 @@ export default function Home() {
         <div>
             <div>
                 <div>
-                    <span className="socialmedia-container" ><img src={fb} ></img></span>
-                    <span className="socialmedia-container" ><img src={ig} ></img></span>
-                    <span className="socialmedia-container" ><img src={pint} ></img></span>
+                    <span className="socialmedia-container" ><img src={fb} alt="facebook_logo" ></img></span>
+                    <span className="socialmedia-container" ><img src={ig} alt="instagram_logo" ></img></span>
+                    <span className="socialmedia-container" ><img src={pint} alt="pint_logo" ></img></span>
                 </div>
                 <div>
                     <h1>Witaj w świecie
