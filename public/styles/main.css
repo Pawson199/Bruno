@@ -61,32 +61,30 @@ body, html {
   width: auto;
   list-style: none;
   margin: auto;
+  -webkit-transition: linear 200ms;
+  transition: linear 200ms;
+}
+
+.menu ul li:hover {
+  padding-bottom: 0.3em;
 }
 
 .menu ul li a {
   text-decoration: none;
   color: black;
-  font-size: 1.2rem;
   font-weight: 500;
 }
 
-.menu .cart {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  height: 100%;
-  width: 4em;
-  font-weight: 500;
-  font-size: 1.2rem;
+@media only screen and (max-width: 900px) {
+  .menu ul li a {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .menu ul li a {
+    font-size: 1.2rem;
+  }
 }
 
 .menu .burgerek {
@@ -202,6 +200,36 @@ body, html {
   top: 0;
 }
 
+.menu .cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 100%;
+  width: 4em;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 900px) {
+  .menu .cart {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .menu .cart {
+    font-size: 1.2rem;
+  }
+}
+
 @media only screen and (max-width: 901px) {
   .menu .logo-container {
     display: -webkit-box;
@@ -235,6 +263,109 @@ body, html {
   }
   .menu .cart {
     margin-right: 2em;
+  }
+}
+
+.social-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 2rem;
+}
+
+.social-media img {
+  width: auto;
+  height: 2em;
+  margin-bottom: 0.6em;
+}
+
+.social-media-and-description {
+  margin: 8em 30% 4em auto;
+}
+
+.social-media-and-description .description {
+  position: relative;
+}
+
+.social-media-and-description .description h1 {
+  margin: 1rem 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .social-media-and-description .description h1 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .social-media-and-description .description h1 {
+    font-size: 2rem;
+  }
+}
+
+.social-media-and-description .description h2 {
+  font-weight: 500;
+  margin: 0 0 2rem 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .social-media-and-description .description h2 {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .social-media-and-description .description h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 901px) {
+  .social-media-and-description {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .social-media-and-description {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -66,7 +66,7 @@ export default function Menu() {
               <img onClick={ () =>  history.replace('/')} alt="logo" src={logo}/> 
             </div>
             <div className="cart">
-            <i class="ri-shopping-bag-3-line ri-xl"></i>
+            <i className="ri-shopping-bag-3-line ri-xl"></i>
                 <p> 0 </p>
             </div>
         </nav>

@@ -1,0 +1,41 @@
+@import './functions';
+@import './utilities';
+
+.social-media{
+    @include display-flex(column, center);
+    margin-right: 2rem;
+        & img{
+            width: auto;
+            height: 2em;
+            margin-bottom: 0.6em;
+        }
+}
+
+.social-media-and-description{
+    margin: 8em 30% 4em auto;
+        & .description {
+            position: relative;
+            & h1{
+                @include font-size($dfb, $mfb);
+                margin: 1rem 0
+            }
+            & h2 {
+                @include font-size($dfm, $mfm);
+                font-weight: 500;
+                margin: 0 0 2rem 0;
+            }
+        }
+}
+
+@media only screen and (max-width: 901px) {
+    .social-media-and-description{
+        @include display-flex(column, center);
+        align-items: flex-start;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    .social-media-and-description{
+        @include display-flex(row-reverse, center);
+    }
+}

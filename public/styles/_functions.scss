@@ -8,9 +8,9 @@
 
 @mixin font-size($font, $font2){
 @media only screen and (max-width: 900px) {
-   font-size: $font2
+   font-size: $font
 }
 @media only screen and (min-width:900px) {
-  font-size: $font
+  font-size: $font2
 }
 }

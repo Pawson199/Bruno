@@ -1,9 +1,6 @@
+@import "./utilities";
 @import "./functions";
 
-$base-color: #EEBB39;
-$bfs: 0.8rem;
-$bfm: 1.2rem;
-$bfb: 1.5rem;
 
 body, html{
     height: 100%;
@@ -39,24 +36,28 @@ body, html{
                     width: auto;
                     list-style: none;
                     margin: auto;
+                    transition: linear 200ms;
+                    &:hover{
+                        padding-bottom: 0.3em;
+                    }
                    a{
                             text-decoration: none;
                             color: black;
-                            font-size:  $bfm;
+                            @include font-size( $dfm, $mfm );
                             font-weight: 500;
                         }
                 }
         }   
+        @import './burger';
 
         .cart{
             @include display-flex( row, space-around );
             height: 100%;
             width: 4em;
             font-weight: 500;
-            font-size:  $bfm;
+            @include font-size( $dfm, $mfm );
         }
 
-            @import './burger';
 }
 
 @media only screen and (max-width: 901px) {
@@ -86,3 +87,5 @@ body, html{
     }
   }
 }
+
+@import './home';
