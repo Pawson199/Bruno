@@ -1,0 +1,16 @@
+@mixin display-flex($direction, $sec) {
+    display: flex;
+    justify-content: $sec;
+    align-items: center;
+    flex-direction: $direction; 
+}
+
+
+@mixin font-size($font, $font2){
+@media only screen and (max-width: 900px) {
+   font-size: $font2
+}
+@media only screen and (min-width:900px) {
+  font-size: $font
+}
+}

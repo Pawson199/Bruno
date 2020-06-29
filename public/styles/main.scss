@@ -1,0 +1,88 @@
+@import "./functions";
+
+$base-color: #EEBB39;
+$bfs: 0.8rem;
+$bfm: 1.2rem;
+$bfb: 1.5rem;
+
+body, html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+.menu{
+    max-width: 100%;
+    height: 6em;
+    padding: 0;
+    @include display-flex(row, space-between);
+    background-color: $base-color;
+    border-bottom: 2px black solid;
+        .logo-container{
+            height: 100%;
+            width: auto;
+            & img{
+                width: auto;
+                height: 80%; 
+            }
+        }
+        
+        ul{
+            @include display-flex(row, center);
+            min-width: 32em;
+            height: 100%;
+            padding-left: 1em;
+            margin:0;
+                li{
+                    width: auto;
+                    list-style: none;
+                    margin: auto;
+                   a{
+                            text-decoration: none;
+                            color: black;
+                            font-size:  $bfm;
+                            font-weight: 500;
+                        }
+                }
+        }   
+
+        .cart{
+            @include display-flex( row, space-around );
+            height: 100%;
+            width: 4em;
+            font-weight: 500;
+            font-size:  $bfm;
+        }
+
+            @import './burger';
+}
+
+@media only screen and (max-width: 901px) {
+    .menu{
+        .logo-container{
+            @include display-flex( row, center )
+        }
+        .cart{
+            margin-right: 1em ;
+        }
+    }
+}
+
+@media only screen and (min-width: 901px) {
+  .menu{
+     & .logo-container{
+         position: relative;
+         height: 100%;
+        & img{
+            position: absolute;
+            bottom: -4.5em;
+            height: 9em;
+        }
+      }
+      .cart{
+        margin-right: 2em ;
+    }
+  }
+}
