@@ -12,30 +12,38 @@
 }
 
 .social-media-and-description{
-    margin: 8em 30% 4em auto;
         & .description {
             position: relative;
             & h1{
                 @include font-size($dfb, $mfb);
-                margin: 1rem 0
+                margin: 1rem 0;
+                max-width: 20em;
             }
             & h2 {
                 @include font-size($dfm, $mfm);
                 font-weight: 500;
                 margin: 0 0 2rem 0;
+                max-width: 28em;
             }
         }
 }
 
 @media only screen and (max-width: 901px) {
     .social-media-and-description{
+        width: 80%;
+        margin: 2em auto;
         @include display-flex(column, center);
         align-items: flex-start;
+    }
+    .social-media{
+        margin-top: 2rem;
     }
 }
 
 @media only screen and (min-width: 901px) {
     .social-media-and-description{
+        margin: 8em 20% 4em auto;
         @include display-flex(row-reverse, center);
     }
+
 }

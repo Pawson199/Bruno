@@ -9,14 +9,14 @@ export default function Home() {
         <div>
             <div className="social-media-and-description" >
                 <div className="description">
-                    <h1>Witaj w świecie <br />
-                        skórzanego rękodzieła.
+                    <h1>Witaj w świecie <br/>
+                        skórzanego rękodzieła!
                     </h1>
-                    <h2>Jeżeli poszukujesz obroży, smyczy, lub innego <br/>
-                        skórzanego akcesoria dla swojego pupila, <br/>
-                        to jesteś w odpowiednim miejscu!
+                    <h2>Jeżeli poszukujesz obroży, smyczy, lub innego
+                        skórzanego akcesoria dla swojego pupila,
+                        to jesteś <br/> w odpowiednim miejscu!
                     </h2>
-                    <Button> <a href="/home">Sprawdź!</a> </Button>
+                    <Button> <button><a href="/home">Sprawdź!</a></button>  </Button>
                 </div>
                 <div className="social-media">
                         <span className="socialmedia-container" ><img src={fb} alt="facebook_logo" ></img></span>
