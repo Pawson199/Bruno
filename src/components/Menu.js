@@ -18,6 +18,7 @@ export default function Menu() {
         prevState => prevState === "no-cross" ?  "cross" : 'no-cross'
       )
     }
+    
 
     function checkWidth() {
         window.innerWidth < 900 ? setburgerornot(false) : setburgerornot(true)

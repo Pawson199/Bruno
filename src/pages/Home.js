@@ -10,6 +10,7 @@ import {Button} from '../components/Button'
 import Homeoffer from '../components/Homeoffer'
 
 export default function Home() {
+
     return (
         <div className="view">
             <div className="clippy1 clip" ></div>
@@ -32,7 +33,7 @@ export default function Home() {
                 </div>
             </div>
             <div className="home_offers">
-                <Homeoffer src={pies2} desc="Oferujemy grawerna zamówienie!" />
+                <Homeoffer src={pies2} desc="Oferujemy grawer na zamówienie!" />
                 <Homeoffer src={pies1} desc="Obroża na każdy rozmiar!" />
                 <Homeoffer src={pies3} desc="Sprzedajemy również zestawy ze smyczą!" /> 
             </div>
