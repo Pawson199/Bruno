@@ -13,6 +13,7 @@ export const Button = styled.div`
         border: solid 2px black;
         background-color: white;
         font-family: Montserrat, sans-serif;
+        cursor: pointer;
     }
 
     ::after {
