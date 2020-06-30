@@ -6,6 +6,25 @@ body, html {
   font-size: 16px;
 }
 
+.App {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.view {
+  min-height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .menu {
   max-width: 100%;
   height: 6em;
@@ -230,6 +249,43 @@ body, html {
   }
 }
 
+.footer {
+  max-width: 100%;
+  height: auto;
+  padding: 1em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #EEBB39;
+  border-top: 2px black solid;
+}
+
+.footer p {
+  margin: 0.5em 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .footer p {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .footer p {
+    font-size: 1rem;
+  }
+}
+
 @media only screen and (max-width: 901px) {
   .menu .logo-container {
     display: -webkit-box;
@@ -285,11 +341,9 @@ body, html {
 
 .social-media img {
   width: auto;
-  height: 2em;
-  margin-bottom: 0.6em;
 }
 
-.social-media-and-description .description {
+.social-media-and-description {
   position: relative;
 }
 
@@ -313,7 +367,7 @@ body, html {
 .social-media-and-description .description h2 {
   font-weight: 500;
   margin: 0 0 2rem 0;
-  max-width: 28em;
+  max-width: 30em;
 }
 
 @media only screen and (max-width: 900px) {
@@ -350,13 +404,34 @@ body, html {
             align-items: flex-start;
   }
   .social-media {
-    margin-top: 2rem;
+    margin-top: 3rem;
+    position: absolute;
+    top: 100%;
+  }
+  .social-media img {
+    height: 1.8em;
+    margin-bottom: 0.8em;
+  }
+  .home_offers {
+    display: none;
+  }
+  .mobile_bg_container {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: flex;
+        -ms-flex-pack: flex;
+            justify-content: flex;
+  }
+  .mobile_bg_container img {
+    max-width: 100%;
   }
 }
 
 @media only screen and (min-width: 901px) {
   .social-media-and-description {
-    margin: 8em 20% 4em auto;
+    margin: 8em auto 4em 20%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -370,6 +445,36 @@ body, html {
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
+  }
+  .social-media img {
+    height: 2em;
+    margin-bottom: 1em;
+  }
+  .home_offers {
+    width: 80%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .home_offers .offer_in_homepage:nth-child(odd) {
+    margin-left: auto;
+  }
+  .home_offers .offer_in_homepage:nth-child(even) {
+    margin-right: auto;
+  }
+  .offer_in_homepage {
+    max-width: 25rem;
+  }
+  .offer_in_homepage img {
+    max-width: 100%;
+  }
+  .mobile_bg_container {
+    display: none;
   }
 }
 /*# sourceMappingURL=main.css.map */
