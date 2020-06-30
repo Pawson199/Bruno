@@ -57,8 +57,30 @@
 }
 
 @media only screen and (min-width: 901px) {
+
+    .clippy1{
+        clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+        background-color: #eebb391a;
+        position: absolute;
+        left: 10%;
+        width: 30em;
+        height: 30em;
+        top: 40%;
+        z-index: -5
+    }
+    .clippy2{
+        clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+        background-color: #eebb391a;
+        position: absolute;
+        right: 10%;
+        width: 30em;
+        height: 30em;
+        top: 130%;
+        z-index: -5;
+    }
+    
     .social-media-and-description{
-        margin: 8em auto 4em 20%;
+        margin: 8em 50% 8em auto;
         @include display-flex(row-reverse, center);
     }
     .social-media{
@@ -80,11 +102,72 @@
            }
     }
     .offer_in_homepage{
-        max-width: 25rem;
-            & img {
-                max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10rem;
+            .image_holder{
+                max-width: 30rem;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                    & img {
+                        max-width: 100%;
+                        height: auto;
+                        box-shadow: 22px 22px 5px -10px rgba(0, 0, 0, 0.336);
+                    }
+                    &::before{
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        background-color: $base-color;
+                        z-index: -4;
+                    }
             }
+            & p{
+                background-color: white;
+                padding: 1.5em;
+                max-width: 15em;
+                font-weight: 600;
+                font-size: $mfmx2;
+            }
+            
     }
+    .offer_in_homepage:nth-child(odd) {
+        flex-direction: row-reverse;
+            & .image_holder{
+                &::before{
+                    right: 30%;
+                    top: -10%;
+                }
+                & img {
+                    box-shadow: 22px 22px 5px -10px rgba(0, 0, 0, 0.336);
+                }
+            }
+            & p {
+                margin-right: 1em ;
+                text-align: right;
+            }
+       }
+    .offer_in_homepage:nth-child(even) {
+        flex-direction: row;
+            & .image_holder{
+                &::before{
+                    left: 30%;
+                    top: -10%;
+                }
+                & img {
+                    box-shadow: -22px 22px 5px -10px rgba(0, 0, 0, 0.336);
+                }
+            }
+            & p {
+                margin-left: 1em ;
+            }
+       }
+
     .mobile_bg_container{
         display: none;
     }
