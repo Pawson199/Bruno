@@ -58,29 +58,27 @@
 
 @media only screen and (min-width: 901px) {
 
-    .clippy1{
+    .clip{
         clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
         background-color: #eebb391a;
         position: absolute;
-        left: 10%;
-        width: 30em;
-        height: 30em;
-        top: 40%;
-        z-index: -5
+        width: 20em;
+        height: 20em;
+        position: absolute;
+        z-index: -5;
+    }
+
+    .clippy1{
+        left: 20%;
+        top: 50%
     }
     .clippy2{
-        clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
-        background-color: #eebb391a;
-        position: absolute;
         right: 10%;
-        width: 30em;
-        height: 30em;
         top: 130%;
-        z-index: -5;
     }
     
     .social-media-and-description{
-        margin: 8em 50% 8em auto;
+        margin: 8em auto 8em 10%;
         @include display-flex(row-reverse, center);
     }
     .social-media{

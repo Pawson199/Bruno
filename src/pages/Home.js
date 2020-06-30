@@ -12,8 +12,8 @@ import Homeoffer from '../components/Homeoffer'
 export default function Home() {
     return (
         <div className="view">
-            <div className="clippy1" ></div>
-            <div className="clippy2" ></div>
+            <div className="clippy1 clip" ></div>
+            <div className="clippy2 clip" ></div>
             <div className="social-media-and-description" >
                 <div className="description">
                     <h1>Witaj w świecie <br/>
