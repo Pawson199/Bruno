@@ -6,7 +6,10 @@ export default function Homeoffer(props) {
             <span className="image_holder">
                 <img src={props.src} alt="dog" ></img>
             </span>
-            <p>{props.desc}</p>
+            <p>
+                {props.desc}
+                <span></span>
+            </p>
         </div>
     )
 }

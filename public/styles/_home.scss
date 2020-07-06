@@ -131,11 +131,22 @@
                     }
             }
             & p{
-                background-color: white;
+
                 padding: 1em;
                 max-width: 15em;
                 font-weight: 600;
                 font-size: $mfmx2;
+                position: relative;
+                z-index: 1;
+                    & span{
+                        height: 100%;
+                        width: 3.3em;
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        background-color: white;
+                        z-index: -1;
+                    }
             }
             
     }
@@ -153,6 +164,9 @@
             & p {
                 margin-right: 1em ;
                 text-align: right;
+                    & span{
+                        right: 0;
+                    }
             }
        }
     .offer_in_homepage:nth-child(even) {
@@ -168,6 +182,9 @@
             }
             & p {
                 margin-left: 1em ;
+                & span{
+                    left: 0;
+                }
             }
        }
 
@@ -196,6 +213,9 @@
             }
             & p{
                 padding: 1.5em;
+                & span{
+                    width: 4.7em;
+                }
             }
             
     }

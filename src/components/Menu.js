@@ -42,9 +42,8 @@ export default function Menu() {
           </div>
           <ul onClick={setPermissionOnClick} className={`${permission} burgerek`}>
             <li ><Link to="/" >HOME</Link></li>
-            <li ><Link to="/oferta" >OFERTY</Link></li>
-            <li ><Link to="/about" >O NAS</Link></li>
-            <li ><Link to="/kontakt" >KONTAKT</Link></li>
+            <li ><Link to="/offers" >OFERTY</Link></li>
+            <li ><Link to="/contact" >KONTAKT</Link></li>
           </ul>
         </>
       )
@@ -53,9 +52,8 @@ export default function Menu() {
      const classic_menu = () => { return ( 
       <ul>
         <li ><Link to="/" >Strona główna</Link></li>
-        <li ><Link to="/oferta" >Oferty</Link></li>
-        <li ><Link to="/about" >O nas</Link></li>
-        <li ><Link to="/kontakt" >Kontakt</Link></li>
+        <li ><Link to="/offers" >Oferty</Link></li>
+        <li ><Link to="/contact" >Kontakt</Link></li>
       </ul>)
     }
 
