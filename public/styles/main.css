@@ -547,13 +547,13 @@ body, html {
     padding: 1em;
     max-width: 15em;
     font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     position: relative;
     z-index: 1;
   }
   .offer_in_homepage p span {
     height: 100%;
-    width: 3.3em;
+    width: 4em;
     display: block;
     position: absolute;
     top: 0;
@@ -644,7 +644,7 @@ body, html {
     padding: 1.5em;
   }
   .offer_in_homepage p span {
-    width: 4.7em;
+    width: 5.5em;
   }
 }
 
@@ -733,7 +733,7 @@ body, html {
 }
 
 .custom_select div label:hover {
-  background-color: rgba(160, 150, 14, 0.158);
+  background-color: #fffbc3;
 }
 
 .custom_select div label input {
@@ -817,6 +817,23 @@ body, html {
 
 .offers_container .category_button {
   margin: 6em 0;
+}
+
+.offers_container .offers {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(16em, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 2em;
+  width: 100%;
+  max-width: 100%;
+}
+
+.offers_container .offers div span img {
+  max-width: 100%;
+  min-width: 100%;
 }
 
 @media only screen and (max-width: 901px) {
