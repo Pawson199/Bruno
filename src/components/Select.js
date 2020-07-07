@@ -15,7 +15,7 @@ export default function Select(props) {
     })
 
     return (
-        <form  >
+        <form  className="custom_select">
                 <span onClick={ (e) => { e.preventDefault(); setactive( prev => !prev ) } } className="category_plate"> 
                     <p className="category_font" >{props.category}</p> 
                     <i className={`ri-arrow-down-s-line ${active}`}></i> 

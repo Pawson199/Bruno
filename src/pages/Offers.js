@@ -33,13 +33,21 @@ fetch(
 
 
     return (
+
         <div className="offers_container">
-            <Select 
+            <span className="category_button">
+              <Select 
                 fun={props.change_category} 
                 category={props.category} 
                 categories={["Obroże", "Smycze", "Obroże dla kotów", "Zestawy", "Adresatki", "Torby", "Portfele", "Akcesoria"]} 
             />
+            </span>
+            <div>
+              {}
+            </div>
+            
         </div>
+
     )
 }
 

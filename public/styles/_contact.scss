@@ -1,0 +1,9 @@
+.contact_container{
+    @include display-flex( column, flex-start );
+    align-items: flex-start;
+    min-height: calc(100vh - 11.6em);;
+    max-width: 100%;
+    box-sizing: border-box;
+
+
+}
