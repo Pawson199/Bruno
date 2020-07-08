@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React from 'react'
 import fb from '../images2/fb.png'
 import pint from '../images2/pint.png'
 import ig from '../images2/ig.png'
