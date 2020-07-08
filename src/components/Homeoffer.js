@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
+import React from 'react'
+import {connect} from "react-redux"
+import {count_load} from "../redux"
 
-export default function Homeoffer(props) {
+function Homeoffer(props) {
 
-    const [ loaded, setloaded ] = useState(true)
 
     return (
         <div className="offer_in_homepage" >
             <span className="image_holder">
-                <span className={`${loaded}`} > <div></div> </span>
-                <img onLoad={ () => setloaded( prev => !prev ) } className={`${loaded}`} src={props.src} alt="dog" ></img>
+                <img onLoad={ () => props.count_load() }  src={props.src} alt="dog" ></img>
             </span>
             <p>
                 {props.desc}
@@ -17,3 +17,9 @@ export default function Homeoffer(props) {
         </div>
     )
 }
+
+export default connect(state => (
+    {
+      isloaded: state.isloaded
+    }
+  ), {count_load})(Homeoffer)

@@ -6,9 +6,13 @@ export const change_category = (category) => ({
     payload: category
 })
 
+export const count_load = () => ({
+    type: "COUNT_LOAD"
+})
 
 const initialState = { 
-    category: "Obroże"
+    category: "Obroże",
+    isloaded: 0
  }
 
 const reducer = (state = initialState, action) => {
@@ -17,6 +21,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 category: action.payload
+            }
+
+        case "COUNT_LOAD":
+            return {
+                ...state,
+                isloaded: state.isloaded + 1
             }
 
         default:
