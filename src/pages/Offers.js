@@ -40,6 +40,7 @@ function Offers(props) {
 
     return (
         <div className="offers_container">
+          <div className="ornament">  </div>
             <span className="category_button">
               <Select 
                 fun={props.change_category} 

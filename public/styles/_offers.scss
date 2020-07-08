@@ -1,3 +1,5 @@
+@import './utilities';
+
 .offers_container{
     @include display-flex( column, flex-start );
     align-items: flex-start;
@@ -18,16 +20,88 @@
             width: 100%;
             max-width: 100%;
                 & div {
+                    border: black 2px solid;
                         & span {
-                             & img{
-                                 max-width: 100%;
-                                 min-width: 100%;
-                             }
+                            position: relative;
+                            display: flex;
+                                & span{
+                                    & div {
+                                        border: 5px solid #f3f3f3;
+                                        border-radius: 50%;
+                                        border-top: 5px solid $base-color;
+                                        width: 50px;
+                                        height: 50px;
+                                        -webkit-animation: spin 2s linear infinite; /* Safari */
+                                        animation: spin 2s linear infinite;
+                                    }
+                                }
+                                & span.true{
+                                    position: absolute;
+                                    @include display-flex(row, center);
+                                    width: 100%;
+                                    height: 12em;
+                                    background-color: white;
+                                    transition: opacity 300ms linear;
+                                    opacity: 1;
+                                }
+                                & span.false{
+                                    opacity: 0;
+                                    display: none;
+                                }
+                                
+                                & img{
+                                    max-width: 100%;
+                                    min-width: 100%;
+                                    transition: opacity 500ms linear;
+                                }
+                                & img.true{
+                                    opacity: 0;
+                                    height: 12em;
+                                }
+                                & img.false{
+                                    opacity: 1;
+                                    height: auto;
+                                }
+                        }
+                        & .product_name_price{
+                            @include display-flex( column, center );
+                            border-top: black 2px solid;
+                            background-color: white;
+                                & p:nth-child(1){
+                                    margin-bottom: 0;
+                                    font-weight:600;
+                                    @include font-size( $dfm, $mfm );
+                                }
+                                & p:nth-child(2){
+                                    font-weight: 500;
+                                    @include font-size( $dfs, $mfs );
+                                }
                         }
                 }
         }
 
 }
+
+.ornament{
+    position: fixed;
+    top: 30%;
+    transform: rotate(135deg);
+    background-image: url('../images/backgr.jpg');
+    background-position: 100% 100%;
+    background-size: 100%;
+    z-index: -5;
+    opacity: 0.16;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 
 @media only screen and (max-width: 901px) {
@@ -38,7 +112,13 @@
         }    
     }
     
+    .offers{
+        margin-bottom: 3em;
+    }
 
+    .ornament{
+        display: none;
+    }
 }
 
 
@@ -50,4 +130,13 @@
           }    
       }
 
+    .offers{
+        margin-bottom: 6em;
+    }
+
+    .ornament{
+        width: 30em;
+        height: 30em;
+        right: -21em;
+    }
 }
