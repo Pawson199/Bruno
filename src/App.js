@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import Offers from './pages/Offers';
 import Contact from './pages/Contact';
 function App() {
+
+
   return (
     <div className="App">
       <Switch>

@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import Select from '../components/Select'
 import Product from '../components/Product'
 import {connect} from "react-redux"
 import {change_category} from '../redux'
+import {Button} from '../components/Button'
 
 function Offers(props) {
 
@@ -35,13 +36,39 @@ function Offers(props) {
 
   }, [])
 
-  const products = productarray.length > 0 ? productarray.map( (el) => <Product key={el.id} name={el.nazwa} price={el.cena} src={el.zdjCie.url} /> ) :  (<p>loading</p>) 
+
+  const ref = useRef()
+
+  const button_listener = () => {  
+      if( window.pageYOffset > 100 && window.pageYOffset < document.querySelector('body').clientHeight - 1000 && window.innerWidth < 900 ){
+          ref.current.classList.add('visible')
+      }
+      else{
+          ref.current.classList.remove('visible')
+      }
+   }
+
+
+  useEffect(() => {
+          window.addEventListener("scroll", button_listener)
+      return () => {
+          window.removeEventListener("scroll", button_listener)
+      }
+  }, [])
+
+  const products = productarray.length > 0 
+  ? 
+    productarray.map( (el) => <Product key={el.id} name={el.nazwa} price={el.cena} src={el.zdjCie.url} /> ) 
+  :  
+    (<span className="spinner" >
+      <span ></span>
+    </span>) 
 
 
     return (
-        <div className="offers_container">
+        <div className="offers_container" >
           <div className="ornament">  </div>
-            <span className="category_button">
+            <span className="category_button"  id="start">
               <Select 
                 fun={props.change_category} 
                 category={props.category} 
@@ -50,6 +77,9 @@ function Offers(props) {
             </span>
             <div className="offers">
               {products}
+            </div>
+            <div className="message_buton_wrapper" ref={ref}>
+                <Button> <button onClick={ (e) => { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); } }> <a  href="#start"> W górę </a> </button> </Button>
             </div>
         </div>
 
