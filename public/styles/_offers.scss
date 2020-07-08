@@ -84,13 +84,14 @@
 
 .ornament{
     position: fixed;
-    top: 30%;
-    transform: rotate(135deg);
     background-image: url('../images/backgr.jpg');
+    background-repeat: no-repeat;
     background-position: 100% 100%;
     background-size: 100%;
     z-index: -5;
-    opacity: 0.16;
+    opacity: 0.3;
+    bottom: 0;
+    transform: rotate(-45deg);
 }
 
 @-webkit-keyframes spin {
@@ -117,7 +118,9 @@
     }
 
     .ornament{
-        display: none;
+        width: 20em;
+        height: 20em;
+        right: -6em;
     }
 }
 
@@ -137,6 +140,6 @@
     .ornament{
         width: 30em;
         height: 30em;
-        right: -21em;
+        right: -7em;
     }
 }

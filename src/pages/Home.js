@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import fb from '../images2/fb.png'
 import pint from '../images2/pint.png'
 import ig from '../images2/ig.png'
@@ -10,6 +10,8 @@ import {Button} from '../components/Button'
 import Homeoffer from '../components/Homeoffer'
 
 export default function Home() {
+
+    const [ loaded, setloaded ] = useState(true)
 
     return (
         <div className="home_container">
@@ -38,7 +40,7 @@ export default function Home() {
                 <Homeoffer src={pies3} desc="Sprzedajemy również zestawy ze smyczą!" /> 
             </div>
             <div className="mobile_bg_container" >
-                <img src={pies4} alt="dog" ></img>
+                <img onLoad={ () => setloaded( prev => !prev ) } className={`${loaded}`} src={pies4} alt="dog" ></img>
             </div>
         </div>
     )
