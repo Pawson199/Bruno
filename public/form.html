@@ -7,12 +7,11 @@
 </head>
 <body>
     
-    <form name="contact" method="POST" data-netlify="true">
+    <form name="contact" method="POST" netlify netlify-honeypot="bot-field" hidden>
         <input type="email" name="name" />
-           <textarea type="message" name="email" ></textarea>
-         <input type="checkbox" id="scales" name="scales"/>
- 
-       <button type="submit"><p >Wyślij</p></button>
+        <textarea type="message" name="email" ></textarea>
+        <input type="checkbox" id="scales" name="scales"/>
+        <button type="submit"><p>Wyślij</p></button>
    </form>
  
 
