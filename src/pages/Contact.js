@@ -18,7 +18,7 @@ export default function Contact() {
                         </p>
                         <input type="checkbox" id="scales" name="scales"/>
                     </div>
-                    <Button><button type="submit"><p >Wyślij</p></button></Button>
+                    <Button><button onClick={ (e) => e.preventDefault() } type="submit"><p >Wyślij</p></button></Button>
             </form>
         </div>
     )
