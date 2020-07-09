@@ -8,10 +8,6 @@
     margin: 0 auto;
     box-sizing: border-box;
 
-        & .category_button{
-            margin: 6em 0;
-        }
-
         & .offers{
             display: grid;
             grid-template-columns: repeat( auto-fill, minmax( 16em, 1fr ) );

@@ -282,6 +282,9 @@ body, html {
           flex-direction: column;
   background-color: #EEBB39;
   border-top: 2px black solid;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 6em;
 }
 
 .footer p {
@@ -900,10 +903,6 @@ body, html {
           box-sizing: border-box;
 }
 
-.offers_container .category_button {
-  margin: 6em 0;
-}
-
 .offers_container .offers {
   display: -ms-grid;
   display: grid;
@@ -1157,12 +1156,145 @@ body, html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 12em);
+  max-width: 80%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.contact_container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.contact_container form p {
+  margin: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .contact_container form p {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .contact_container form p {
+    font-size: 1.2rem;
+  }
+}
+
+.contact_container form p label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  min-height: calc(100vh - 11.6em);
-  max-width: 100%;
+}
+
+.contact_container form p label textarea {
+  resize: none;
+}
+
+.contact_container .policy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+@media only screen and (max-width: 900px) {
+  .contact_container .policy p {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .contact_container .policy p {
+    font-size: 1rem;
+  }
+}
+
+.contact_container .policy input {
+  width: 2em;
+  height: 2em;
+}
+
+@media only screen and (max-width: 901px) {
+  .contact_container form {
+    margin: 3em 0 0 0;
+  }
+  .contact_container form p {
+    width: 100%;
+  }
+  .contact_container form p * {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .contact_container form .paragraph:nth-child(1) {
+    margin-bottom: 2em;
+  }
+  .contact_container form .paragraph:nth-child(1) label input {
+    height: 3em;
+  }
+  .contact_container form .paragraph:nth-child(2) label textarea {
+    height: 15em;
+  }
+  .contact_container form div {
+    margin: 3em 0;
+  }
+  .contact_container form .policy .paragraph {
+    margin-bottom: 0;
+    text-align: left;
+    padding-right: 1em;
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .contact_container form {
+    margin: 6em 0 0 0;
+  }
+  .contact_container form div {
+    margin: 6em 0;
+  }
 }
 /*# sourceMappingURL=main.css.map */

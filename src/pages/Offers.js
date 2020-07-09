@@ -68,7 +68,7 @@ function Offers(props) {
     return (
         <div className="offers_container" >
           <div className="ornament">  </div>
-            <span className="category_button"  id="start">
+            <span className="category_button" >
               <Select 
                 fun={props.change_category} 
                 category={props.category} 
@@ -79,7 +79,7 @@ function Offers(props) {
               {products}
             </div>
             <div className="message_buton_wrapper" ref={ref}>
-                <Button> <button onClick={ (e) => { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); } }> <a  href="#start"> W górę </a> </button> </Button>
+                <Button> <button onClick={ (e) => { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); } }> <p > W górę </p> </button> </Button>
             </div>
         </div>
 

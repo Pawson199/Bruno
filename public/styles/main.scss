@@ -93,6 +93,8 @@ body, html{
     @include display-flex(column, center);
     background-color: $base-color;
     border-top: 2px black solid;
+    box-sizing: border-box;
+    height: 6em;
         & p{
             @include font-size($dfs, $mfs);
             margin: 0.5em 0;

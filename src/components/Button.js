@@ -38,7 +38,7 @@ export const Button = styled.div`
       @media (max-width: 901px) {
         height: 3em;
         width: 9em;
-        a{
+        p{
             font-size: 1rem
           }
       }
@@ -46,14 +46,15 @@ export const Button = styled.div`
       @media (min-width: 901px) {
         height: 4em;
         width: 12em;
-          a{
+          p{
             font-size: 1.2rem
           }
       }
 
-      a{
+      p{
           text-decoration: none;
-          color: black
+          color: black;
+          margin: 0
       }
 
 `;
