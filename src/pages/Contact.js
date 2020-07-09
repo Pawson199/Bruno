@@ -6,12 +6,12 @@ export default function Contact() {
     return (
         <div className="contact_container">
             <form name="contact" method="post">
-                    <input type="hidden" name="contact" value="contact" />
+                    <input type="hidden" name="form-name" value="contact" />
                     <p className="paragraph">
                         <label>E-mail <input type="email" name="email" /></label>
                     </p>
                     <p className="paragraph">
-                        <label>Treść Wiadomości <textarea type="message" name="message" /></label>
+                        <label>Treść Wiadomości <textarea name="message" /></label>
                     </p>
                     <div className="policy">
                         <p className="paragraph">Wyrażam zgodę na przetwarzanie moich danych osobowych przez Bruno Leatherworks Wojciech Bednarek Rokicińska 476 
