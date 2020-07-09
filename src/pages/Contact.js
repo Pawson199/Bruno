@@ -6,7 +6,7 @@ export default function Contact() {
     return (
         <div className="contact_container">
             <form name="contact" method="POST" data-netlify="true">
-                    <input type="hidden" name="contact" value="contact" />
+                    <input type="hidden" name="form-name" value="contact" />
                     <p className="paragraph">
                         <label>E-mail <input type="email" name="name" /></label>
                     </p>
