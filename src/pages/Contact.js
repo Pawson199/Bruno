@@ -41,6 +41,8 @@ export default function Contact() {
             case "message" :
                 setMessage(e.target.value)
             break;
+            default:
+              alert("no input found")
         }
     };
 
