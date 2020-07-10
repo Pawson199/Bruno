@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom'
-import { browserHistory } from 'react-router';
 import {Provider} from "react-redux"
 import store from "./redux"
 import Menu from './components/Menu'
