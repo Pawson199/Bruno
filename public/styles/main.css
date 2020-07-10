@@ -104,7 +104,8 @@ body, html {
 }
 
 .menu ul li:hover {
-  padding-bottom: 0.3em;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
 }
 
 .menu ul li a {
@@ -126,11 +127,11 @@ body, html {
 }
 
 .menu .burgerek {
-  background-color: #EEBB39;
+  background-color: white;
   -webkit-transition: all .5s linear;
   transition: all .5s linear;
   min-width: 100%;
-  height: 50%;
+  height: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -165,7 +166,7 @@ body, html {
 }
 
 .menu .burgerek li a {
-  color: white;
+  color: black;
 }
 
 .menu .display_off {
@@ -537,20 +538,19 @@ body, html {
   .clip {
     -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
             clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
-    background-color: #eebb391a;
-    position: absolute;
+    background-color: #eebb3941;
     width: 20em;
     height: 20em;
-    position: absolute;
+    position: fixed;
     z-index: -5;
   }
   .clippy1 {
     left: 20%;
-    top: 30%;
+    top: 60%;
   }
   .clippy2 {
     right: 10%;
-    top: 50%;
+    top: 30%;
   }
   .social-media-and-description {
     margin: 5em auto 5em 14%;
@@ -1298,8 +1298,49 @@ body, html {
   .contact_container form {
     margin: 6em 0 0 0;
   }
+  .contact_container form p {
+    width: 100%;
+  }
+  .contact_container form p * {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .contact_container form .paragraph:nth-child(1) {
+    margin-bottom: 2em;
+  }
+  .contact_container form .paragraph:nth-child(1) label input {
+    height: 3em;
+  }
+  .contact_container form .paragraph:nth-child(2) label textarea {
+    height: 18em;
+  }
   .contact_container form div {
-    margin: 6em 0;
+    margin: 3.5em 0 6em;
+  }
+  .contact_container form .policy {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-top: 3em;
+  }
+  .contact_container form .policy .paragraph {
+    width: 90%;
+    margin-bottom: 0;
+    text-align: left;
+    margin: 0;
   }
 }
 /*# sourceMappingURL=main.css.map */

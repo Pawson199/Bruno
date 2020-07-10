@@ -69,7 +69,7 @@ body, html{
                     margin: auto;
                     transition: linear 200ms;
                     &:hover{
-                        padding-bottom: 0.3em;
+                        transform: translateY(-2px);
                     }
                    a{
                             text-decoration: none;

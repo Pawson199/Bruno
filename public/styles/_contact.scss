@@ -91,8 +91,42 @@
         & form {
             margin: 6em 0 0 0;
 
+            & p {
+                width: 100%;
+                & * {
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+            }
+
+            & .paragraph:nth-child(1) {
+                margin-bottom: 2em;
+                }
+
+
+            & .paragraph:nth-child(1) label input {
+                height: 3em;
+                }
+
+               & .paragraph:nth-child(2) label textarea {
+                   height: 18em;
+               }
+
             & div{
-                margin: 6em 0;
+                margin: 3.5em 0 6em;
+            }
+
+            .policy {
+                @include display-flex(row, space-between);
+                margin-top: 3em;
+                & .paragraph{
+                    width: 90%;
+                    margin-bottom: 0;
+                    text-align: left;
+                    margin: 0;
+                }
             }
         }
     }

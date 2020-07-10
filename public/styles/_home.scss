@@ -107,21 +107,20 @@
 
     .clip{
         clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
-        background-color: #eebb391a;
-        position: absolute;
+        background-color: #eebb3941;
         width: 20em;
         height: 20em;
-        position: absolute;
+        position: fixed;
         z-index: -5;
     }
 
     .clippy1{
         left: 20%;
-        top: 30%
+        top: 60%
     }
     .clippy2{
         right: 10%;
-        top: 50%;
+        top: 30%;
     }
     
     .social-media-and-description{
