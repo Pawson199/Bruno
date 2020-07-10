@@ -5,7 +5,6 @@ export default function Contact() {
 
     const [email, setEmail] = useState("")
     const [message, setMessage] = useState("")
-    const [button_disable, setButton_disable] = useState(false)
     const [checkbox1, setcheckbox1] = useState(false)
     
     const encode = (data) => {
