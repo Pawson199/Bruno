@@ -21,6 +21,7 @@
                         & span {
                             position: relative;
                             display: flex;
+                            align-items: flex-start;
                                 & span{
                                     & div {
                                         border: 5px solid #f3f3f3;
@@ -49,6 +50,7 @@
                                 & img{
                                     max-width: 100%;
                                     min-width: 100%;
+                                    height: auto;
                                     transition: opacity 500ms linear;
                                 }
                                 & img.true{

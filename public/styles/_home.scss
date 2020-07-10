@@ -95,10 +95,11 @@
     .mobile_bg_container{
         width: 100%;
         display: flex;
-        justify-content: flex;
+        align-items: flex-start;
         margin-top: 5em;
             & img{
                 max-width: 100%;
+                height: auto;
             }
     }
 }
