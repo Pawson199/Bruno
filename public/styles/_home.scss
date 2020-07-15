@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    min-height: calc(100vh - 11.6em);;
+    min-height: calc(100vh - 12em);;
          & div{
             height: 100%;
             width: 100%;
@@ -33,16 +33,6 @@
             }
 }
 
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
 .social-media{
     @include display-flex(column, center);
     margin-right: 2rem;
@@ -57,6 +47,8 @@
 
 .social-media-and-description{
         position: relative;
+        animation-duration: 1.4s;
+        animation-name: slidein;
         & .description {
             & h1{
                 @include font-size($dfb, $mfb);
@@ -71,7 +63,6 @@
             }
         }
 }
-
 
 @media only screen and (max-width: 901px) {
     .social-media-and-description{
@@ -100,6 +91,8 @@
             & img{
                 max-width: 100%;
                 height: auto;
+                animation-duration: 2s;
+                animation-name: slidein2;
             }
     }
 }
@@ -141,9 +134,13 @@
         flex-direction: column;
            .offer_in_homepage:nth-child(odd) {
             margin-left: auto;
+            animation-duration: 1.4s;
+            animation-name: slidein2;
            }
            .offer_in_homepage:nth-child(even) {
             margin-right: auto;
+            animation-duration: 1.4s;
+            animation-name: slidein;
            }
     }
     .offer_in_homepage{
@@ -262,3 +259,40 @@
             
     }
 }
+
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+@keyframes slidein {
+    from {
+     transform: translateX(-30%);
+     opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+
+  @keyframes slidein2 {
+    from {
+     transform: translateX(30%);
+     opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+  
