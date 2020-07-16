@@ -2,15 +2,15 @@ import React, {useEffect, useRef} from 'react'
 import Select from '../components/Select'
 import Product from '../components/Product'
 import {connect} from "react-redux"
-import {change_category} from '../redux'
+import {change_category, change_category_name} from '../redux'
 import {Button} from '../components/Button'
 
 function Offers(props) {
 
-  const {change_category} = props
+  const {change_category, change_category_name} = props
 
   useEffect(() => {
-    change_category("dog")
+    change_category(props.category_name)
   }, [change_category])
 
   const ref = useRef()
@@ -49,8 +49,10 @@ function Offers(props) {
           <div className="ornament">  </div>
             <span className="category_button" >
               <Select 
-                fun={props.change_category} 
-                categories={["dog", "smycze", "kocie", "zestawy", "adresaty", "torby", "portfele", "akcesoria"]} 
+                fun={change_category} 
+                cat={change_category_name}
+                category_name={props.category_name}
+                categories={["dog", "smycze", "kocie", "zestaw", "adresaty", "torby", "portfele", "akcesoria"]} 
             />
             </span>
             <div className={`offers ${props.center}`}>
@@ -67,6 +69,7 @@ function Offers(props) {
 export default connect(state => (
     {
       productarray: state.products,
-      center: state.center_class
+      center: state.center_class,
+      category_name: state.category
     }
-  ), {change_category})(Offers)
+  ), {change_category, change_category_name})(Offers)

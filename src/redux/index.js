@@ -37,9 +37,16 @@ export const count_load = () => ({
     type: "COUNT_LOAD"
 })
 
+
+export const change_category_name = (category) => ({
+    type: "CHANGE_CATEGORY_NAME",
+    payload: category
+})
+
 const initialState = { 
     products: [],
     isloaded: 0,
+    category: "dog",
     center_class: "center"
  }
 
@@ -58,6 +65,11 @@ const reducer = (state = initialState, action) => {
                 isloaded: state.isloaded + 1
             }
 
+        case "CHANGE_CATEGORY_NAME":
+            return {
+                ...state,
+                category: action.payload
+            }
         default:
             return state
     }
