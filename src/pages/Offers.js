@@ -11,7 +11,7 @@ function Offers(props) {
 
   useEffect(() => {
     change_category(props.category_name)
-  }, [change_category])
+  }, [change_category, props.category_name])
 
   const ref = useRef()
 
