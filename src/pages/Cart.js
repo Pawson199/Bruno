@@ -18,7 +18,7 @@ const products = props.products_in_cart.map( el => <span>{el.name}</span> )
         : 
         <div className="cart_container empty">
             <h1>Twój koszyk jest pusty</h1>
-            <img src={cart_img}></img>
+            <img src={cart_img} alt="empty_cart" ></img>
             <Button> <button><p>Produkty</p></button>  </Button>
         </div>
 
