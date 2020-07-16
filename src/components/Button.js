@@ -14,6 +14,8 @@ export const Button = styled.div`
         background-color: white;
         font-family: Montserrat, sans-serif;
         cursor: pointer;
+        box-sizing: border-box;
+        padding: 0
     }
 
     ::after {

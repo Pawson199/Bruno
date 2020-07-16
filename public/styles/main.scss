@@ -88,6 +88,12 @@ body, html{
             width: 4em;
             font-weight: 500;
             @include font-size( $dfm, $mfm );
+                &  a {
+                    width: 100%;
+                    text-decoration: none;
+                    color: black;
+                    @include display-flex( row, space-around );
+                }
         }
 
 }
@@ -139,3 +145,4 @@ body, html{
 @import './custom-select';
 @import './offers';
 @import './contact';
+@import './cart'

@@ -47,7 +47,12 @@ const initialState = {
     products: [],
     isloaded: 0,
     category: "dog",
-    center_class: "center"
+    center_class: "center",
+    cart: [
+        {name:"kek1"},
+        {name:"kek2"},
+        {name:"kek3"}
+    ]
  }
 
 const reducer = (state = initialState, action) => {

@@ -64,10 +64,13 @@ export default function Menu() {
             <div className="logo-container">
               <img onClick={ () =>  history.replace('/')} alt="logo" src={logo}/> 
             </div>
-            <div className="cart">
-            <i className="ri-shopping-bag-3-line ri-xl"></i>
-                <p> 0 </p>
-            </div>
+              <div className="cart">
+                <Link to="/cart" >
+                  <i className="ri-shopping-bag-3-line ri-xl"></i>
+                  <p> 0 </p>
+                </Link>
+              </div>
+           
         </nav>
     )
 }
