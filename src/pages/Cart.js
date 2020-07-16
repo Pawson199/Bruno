@@ -12,7 +12,7 @@ const products = props.products_in_cart.map( el =>
             <p>Cena: {el.price}</p>
         </div>
         <div className="product_image" >
-            <img src={el.image} ></img>
+            <img alt="offer_name" src={el.image} ></img>
             <div>
              <p>Ilość: {el.quantity}</p>
              <p>Kolor: {el.color}</p>
