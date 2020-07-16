@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    min-height: calc(100vh - 12em);;
+    min-height: calc(100vh - 6em);
          & div{
             height: 100%;
             width: 100%;
@@ -236,7 +236,7 @@
 @media only screen and (min-width: 1401px) {
 
     .social-media-and-description{
-        margin: 8em auto 8em 14%;
+        margin: 6em auto 8em 14%;
         @include display-flex(row-reverse, center);
     }
     .home_offers{

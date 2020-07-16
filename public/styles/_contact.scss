@@ -7,7 +7,9 @@
     max-width: 80%;
     box-sizing: border-box;
     margin: 0 auto;
-
+        & h1{
+            @include font-size($dfb, $mfb);
+        }
         & form{
             @include display-flex(column, center);
             width: 100%;
@@ -44,9 +46,12 @@
 
 @media only screen and (max-width: 901px) {
     .contact_container{
+        & h1{
+            margin: 3rem 0 2rem 0;
+            width: 100%;
+            text-align: left;
+        }
         & form {
-            margin: 3em 0 0 0;
-
                & p {
                    width: 100%;
                    & * {
@@ -88,9 +93,12 @@
 
 @media only screen and (min-width: 901px) {
     .contact_container{
+        & h1{
+            margin: 6rem 0 2em 0;
+            width: 100%;
+            text-align: left;
+        }
         & form {
-            margin: 6em 0 0 0;
-
             & p {
                 width: 100%;
                 & * {

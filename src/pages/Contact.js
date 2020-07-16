@@ -55,6 +55,7 @@ export default function Contact() {
 
     return (
         <div className="contact_container">
+         <h1>Formularz kontaktowy</h1>
          <form >
                     <p className="paragraph">
                         <label>E-mail <input type="email" value={email} onChange={handleChange}  name="email" /></label>

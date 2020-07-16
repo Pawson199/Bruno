@@ -3,7 +3,7 @@
 .offers_container{
     @include display-flex( column, flex-start );
     align-items: flex-start;
-    min-height: calc(100vh - 12em);;
+    min-height: calc(100vh - 6em);;
     max-width: 80%;
     margin: 0 auto;
     box-sizing: border-box;
@@ -163,15 +163,14 @@
 
 @media only screen and (min-width: 901px) {
 
+
+
     .offers_container{
+        padding-bottom: 6em;
         .category_button{
           margin: 6em 0;
           }    
       }
-
-    .offers{
-        margin-bottom: 6em;
-    }
 
     .ornament{
         width: 30em;

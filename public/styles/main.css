@@ -361,7 +361,7 @@ body, html {
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: relative;
-  min-height: calc(100vh - 12em);
+  min-height: calc(100vh - 6em);
 }
 
 .image_test div {
@@ -692,7 +692,7 @@ body, html {
 
 @media only screen and (min-width: 1401px) {
   .social-media-and-description {
-    margin: 8em auto 8em 14%;
+    margin: 6em auto 8em 14%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -971,7 +971,7 @@ body, html {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  min-height: calc(100vh - 12em);
+  min-height: calc(100vh - 6em);
   max-width: 80%;
   margin: 0 auto;
   -webkit-box-sizing: border-box;
@@ -1213,11 +1213,11 @@ body, html {
 }
 
 @media only screen and (min-width: 901px) {
+  .offers_container {
+    padding-bottom: 6em;
+  }
   .offers_container .category_button {
     margin: 6em 0;
-  }
-  .offers {
-    margin-bottom: 6em;
   }
   .ornament {
     width: 30em;
@@ -1246,6 +1246,18 @@ body, html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 900px) {
+  .contact_container h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .contact_container h1 {
+    font-size: 2.6rem;
+  }
 }
 
 .contact_container form {
@@ -1340,8 +1352,10 @@ body, html {
 }
 
 @media only screen and (max-width: 901px) {
-  .contact_container form {
-    margin: 3em 0 0 0;
+  .contact_container h1 {
+    margin: 3rem 0 2rem 0;
+    width: 100%;
+    text-align: left;
   }
   .contact_container form p {
     width: 100%;
@@ -1374,8 +1388,10 @@ body, html {
 }
 
 @media only screen and (min-width: 901px) {
-  .contact_container form {
-    margin: 6em 0 0 0;
+  .contact_container h1 {
+    margin: 6rem 0 2em 0;
+    width: 100%;
+    text-align: left;
   }
   .contact_container form p {
     width: 100%;

@@ -1,43 +1,19 @@
-import React, {useEffect, useState, useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import Select from '../components/Select'
 import Product from '../components/Product'
 import {connect} from "react-redux"
 import {change_category} from '../redux'
 import {Button} from '../components/Button'
-const contentful = require('contentful')
 
 function Offers(props) {
 
-
-  const [productarray, setproductarray] = useState([])
+  const {change_category} = props
 
   useEffect(() => {
-    const client = contentful.createClient({
-      space: 'f7ius08ge64j',
-      environment: 'master',
-      accessToken: 'LCdJVL6-l_G8pEUS8U_0qhaMO0dUv417XCaMSLn4caY'
-    })
-
-    client.getEntries({content_type: 'dog'})
-    .then((response) => {
-    
-  const products_new =  response.items.map( el =>
-      ({
-        id: el.sys.id,
-        cena: el.fields.dogPrice,
-        nazwa: el.fields.dogName,
-        photo_url: el.fields.dogPhoto.fields.file.url 
-      })
-      )
-      setproductarray(products_new)
-      ref2.current.classList.remove('center')
-      })
-    .catch(console.error)
-
-  }, [])
+    change_category("dog")
+  }, [change_category])
 
   const ref = useRef()
-  const ref2 = useRef()
 
   const button_listener = () => {  
       if( window.pageYOffset > 100 && window.pageYOffset < document.querySelector('body').clientHeight - 1000 && window.innerWidth < 900 ){
@@ -55,11 +31,13 @@ function Offers(props) {
       }
   }, [])
 
-  console.log(productarray)
 
-  const products = productarray.length > 0 
+  const mapIt = () => {
+   return props.productarray.map( (el) => <Product key={el.id} name={el.nazwa} price={el.cena} src={el.photo_url} /> )
+  }
+  const products = props.productarray.length > 0 
   ? 
-    productarray.map( (el) => <Product key={el.id} name={el.nazwa} price={el.cena} src={el.photo_url} /> ) 
+    mapIt()
   :  
     (<span className="spinner" >
       <span ></span>
@@ -72,11 +50,10 @@ function Offers(props) {
             <span className="category_button" >
               <Select 
                 fun={props.change_category} 
-                category={props.category} 
-                categories={["Obroże", "Smycze", "Obroże dla kotów", "Zestawy", "Adresatki", "Torby", "Portfele", "Akcesoria"]} 
+                categories={["dog", "smycze", "kocie", "zestawy", "adresaty", "torby", "portfele", "akcesoria"]} 
             />
             </span>
-            <div className="offers center" ref={ref2}>
+            <div className={`offers ${props.center}`}>
               {products}
             </div>
             <div className="message_buton_wrapper" ref={ref}>
@@ -89,6 +66,7 @@ function Offers(props) {
 
 export default connect(state => (
     {
-      category: state.category
+      productarray: state.products,
+      center: state.center_class
     }
   ), {change_category})(Offers)

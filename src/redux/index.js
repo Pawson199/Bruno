@@ -1,18 +1,46 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
+import thunk from 'redux-thunk'
 
+const contentful = require('contentful')
 
-export const change_category = (category) => ({
-    type: "CHANGE_CATEGORY",
-    payload: category
-})
+const client = contentful.createClient({
+    space: 'f7ius08ge64j',
+    environment: 'master',
+    accessToken: 'LCdJVL6-l_G8pEUS8U_0qhaMO0dUv417XCaMSLn4caY'
+  })
+
+export const change_category = (category) => {
+    
+    return (dispatch) => {
+
+        client.getEntries({content_type: category})
+        .then((response) => { 
+          const products_new =  response.items.map( el =>
+          ({
+            id: el.sys.id,
+            cena: el.fields.Price,
+            nazwa: el.fields.Name,
+            photo_url: el.fields.Photo.fields.file.url 
+          })
+          )
+          dispatch({
+            type: "CHANGE_CATEGORY",
+            payload: products_new
+          })
+          })
+        .catch(console.error)
+    }
+
+}
 
 export const count_load = () => ({
     type: "COUNT_LOAD"
 })
 
 const initialState = { 
-    category: "Obroże",
-    isloaded: 0
+    products: [],
+    isloaded: 0,
+    center_class: "center"
  }
 
 const reducer = (state = initialState, action) => {
@@ -20,7 +48,8 @@ const reducer = (state = initialState, action) => {
         case "CHANGE_CATEGORY":
             return {
                 ...state,
-                category: action.payload
+                products: action.payload,
+                center_class: "no-center"
             }
 
         case "COUNT_LOAD":
@@ -34,7 +63,7 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-const store = createStore(reducer)
+const store = createStore(reducer, applyMiddleware(thunk))
 store.subscribe( () => {
     console.log(store.getState())
 })
