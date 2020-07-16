@@ -5,7 +5,22 @@ import {Button} from '../components/Button'
 
 function Cart(props) {
 
-const products = props.products_in_cart.map( el => <span>{el.name}</span> )
+const products = props.products_in_cart.map( el => 
+    <span>
+        <div className="products_description" >
+            <h2>Nazwa</h2>
+            <p>Cena: {el.price}</p>
+        </div>
+        <div className="product_image" >
+            <img src={el.image} ></img>
+            <div>
+             <p>Ilość: {el.quantity}</p>
+             <p>Kolor: {el.color}</p>
+            </div>
+        </div>
+        <div className="delete_product" ><i class="ri-close-fill ri-2x"></i>Usuń</div>
+    </span> 
+)
 
     return (
         products.length > 0 ?

@@ -49,9 +49,27 @@ const initialState = {
     category: "dog",
     center_class: "center",
     cart: [
-        {name:"kek1"},
-        {name:"kek2"},
-        {name:"kek3"}
+        {name:"kek1",
+        color: "black",
+        image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
+        sizes:{},
+        quantity: 2,
+        price: 212
+        },
+        {name:"kek1",
+        color: "black",
+        image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
+        sizes:{},
+        quantity: 2,
+        price: 212
+        },
+        {name:"kek1",
+        color: "black",
+        image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
+        sizes:{},
+        quantity: 2,
+        price: 212
+        }
     ]
  }
 
