@@ -18,7 +18,7 @@ const products = props.products_in_cart.map( el =>
              <p>Kolor: {el.color}</p>
             </div>
         </div>
-        <div className="delete_product" ><i class="ri-close-fill ri-2x"></i>Usuń</div>
+        <div className="delete_product" ><i className="ri-close-fill ri-2x"></i>Usuń</div>
     </span> 
 )
 

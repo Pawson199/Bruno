@@ -2,9 +2,8 @@ import React from 'react'
 import fb from '../images2/fb.png'
 import pint from '../images2/pint.png'
 import ig from '../images2/ig.png'
-import pies1 from '../images2/pj1.jpg'
-import pies2 from '../images2/pj2.jpg'
-import pies3 from '../images2/pj3.jpg'
+import pies1 from '../images2/pj1.png'
+import pies2 from '../images2/pj2.png'
 import pies4 from '../images2/pjesek_2.png'
 import {Button} from '../components/Button'
 import Homeoffer from '../components/Homeoffer'
@@ -15,7 +14,7 @@ function Home(props) {
 
 
     return (
-        props.isloaded >= 4 ? 
+        props.isloaded >= 3 ? 
         (
         <div className="home_container">
             <div className="clippy1 clip" ></div>
@@ -39,8 +38,7 @@ function Home(props) {
             </div>
             <div className="home_offers">
                 <Homeoffer src={pies2} desc="Oferujemy grawer na zamówienie!" />
-                <Homeoffer src={pies1} desc="Obroża na każdy rozmiar!" />
-                <Homeoffer src={pies3} desc="Sprzedajemy również zestawy ze smyczą!" /> 
+                <Homeoffer src={pies1} desc="Szyjemy akcesoria na każdy rozmiar!" />
             </div>
             <div className="mobile_bg_container" >
                 <img onLoad={ () => props.count_load() } src={pies4} alt="dog" ></img>
@@ -55,8 +53,7 @@ function Home(props) {
             </div>
             <span className="hide">
                 <Homeoffer src={pies2} desc="Oferujemy grawer na zamówienie!" />
-                <Homeoffer src={pies1} desc="Obroża na każdy rozmiar!" />
-                <Homeoffer src={pies3} desc="Sprzedajemy również zestawy ze smyczą!" /> 
+                <Homeoffer src={pies1} desc="Szyjemy na każdy rozmiar!" />
                 <img onLoad={ () => props.count_load() } src={pies4} alt="dog" ></img>
             </span>
         </div>

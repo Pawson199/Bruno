@@ -9,6 +9,7 @@ function Homeoffer(props) {
         <div className="offer_in_homepage" >
             <span className="image_holder">
                 <img onLoad={ () => props.count_load() }  src={props.src} alt="dog" ></img>
+                <div><i className="ri-play-fill ri-2x"></i></div>
             </span>
             <p>
                 {props.desc}
