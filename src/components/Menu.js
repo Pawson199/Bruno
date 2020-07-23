@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {useHistory} from "react-router-dom";
 import logo from "../images2/bruno-logo.png"
+import {connect} from "react-redux"
 
-export default function Menu() {
+function Menu(props) {
 
     let history = useHistory();
     const [permission, setPermission] = useState("display_off")
@@ -67,10 +68,16 @@ export default function Menu() {
               <div className="cart">
                 <Link to="/cart" >
                   <i className="ri-shopping-bag-3-line ri-xl"></i>
-                  <p> 0 </p>
+                  <p>{props.products_in_cart.length}</p>
                 </Link>
               </div>
            
         </nav>
     )
 }
+
+export default connect(state => (
+  {
+    products_in_cart : state.cart
+  }
+), {})(Menu)

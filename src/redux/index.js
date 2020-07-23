@@ -49,26 +49,40 @@ const initialState = {
     category: "dog",
     center_class: "center",
     cart: [
-        {name:"kek1",
+        {name:"keweqk1",
         color: "black",
         image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
         sizes:{},
         quantity: 2,
-        price: 212
+        price: 21
         },
-        {name:"kek1",
+        {name:"kewfdeqk1",
         color: "black",
         image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
         sizes:{},
         quantity: 2,
-        price: 212
+        price: 21
         },
-        {name:"kek1",
+        {name:"kefdsfweqk1",
         color: "black",
         image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
         sizes:{},
         quantity: 2,
-        price: 212
+        price: 21
+        },
+        {name:"kedk1",
+        color: "black",
+        image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
+        sizes:{},
+        quantity: 2,
+        price: 22
+        },
+        {name:"kekdsa1",
+        color: "black",
+        image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
+        sizes:{},
+        quantity: 2,
+        price: 12
         }
     ]
  }
