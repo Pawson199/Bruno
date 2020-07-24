@@ -43,7 +43,7 @@ function Menu(props) {
           </div>
           <ul onClick={setPermissionOnClick} className={`${permission} burgerek`}>
             <li ><Link to="/" >HOME</Link></li>
-            <li ><Link to="/offers" >OFERTY</Link></li>
+            <li ><Link to="/offers" >OFERTA</Link></li>
             <li ><Link to="/contact" >KONTAKT</Link></li>
           </ul>
         </>
@@ -53,7 +53,7 @@ function Menu(props) {
      const classic_menu = () => { return ( 
       <ul>
         <li ><Link to="/" >Strona główna</Link></li>
-        <li ><Link to="/offers" >Oferty</Link></li>
+        <li ><Link to="/offers" >Oferta</Link></li>
         <li ><Link to="/contact" >Kontakt</Link></li>
       </ul>)
     }

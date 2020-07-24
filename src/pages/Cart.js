@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {connect} from "react-redux"
 import cart_img from '../images2/cart_image.svg'
 import {Button} from '../components/Button'
+import { removeFavoriteThing } from '../redux'
 
 function Cart(props) {
 
@@ -11,16 +12,16 @@ const products = props.products_in_cart.map( el =>
     <span key={el.name} >
         <div className="products_description" >
             <h2>{el.name}</h2>
-            <p>Cena: {el.price}</p>
+            <p>Cena: <small>{el.price}</small></p>
         </div>
         <div className="product_image" >
             <img alt="offer_name" src={el.image} ></img>
             <div>
-             <p>Ilość: {el.quantity}</p>
-             <p>Kolor: {el.color}</p>
+             <p>Ilość:  <small>{el.quantity}</small></p>
+             <p>Rozmiar: <small>{el.sizes.w} - {el.sizes.l}</small></p>
             </div>
         </div>
-        <div className="delete_product" ><i className="ri-close-fill ri-2x"></i>Usuń</div>
+        <div className="delete_product"  ><i onClick={ () => props.removeFavoriteThing(el.name) } className="ri-close-fill ri-2x"></i>Usuń</div>
     </span> 
 )
 
@@ -61,7 +62,7 @@ const sum = () => {
                         <p><b>Suma:</b> {sum() + parseInt(deliviery) } PLN </p>    
                     </div>
 
-                    <Button> <button><p>Dalej</p></button>  </Button>
+                    <Button> <button ><p>Zamów</p></button>  </Button>
                 </div>  
                 <div id="easypack-map"></div>
             </div>
@@ -81,4 +82,4 @@ export default connect(state => (
     {
       products_in_cart : state.cart
     }
-  ), {})(Cart)
+  ), { removeFavoriteThing })(Cart)

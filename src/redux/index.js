@@ -37,6 +37,12 @@ export const count_load = () => ({
     type: "COUNT_LOAD"
 })
 
+export function removeFavoriteThing(thing) {
+    return {
+        type: "REMOVE_FAVORITE_THING",
+        payload: thing
+    }
+}
 
 export const change_category_name = (category) => ({
     type: "CHANGE_CATEGORY_NAME",
@@ -50,37 +56,32 @@ const initialState = {
     center_class: "center",
     cart: [
         {name:"keweqk1",
-        color: "black",
         image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
-        sizes:{},
+        sizes:{w: "20cm", l: "20cm"},
         quantity: 2,
         price: 21
         },
         {name:"kewfdeqk1",
-        color: "black",
         image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
-        sizes:{},
+        sizes:{w: "20cm", l: "20cm"},
         quantity: 2,
         price: 21
         },
         {name:"kefdsfweqk1",
-        color: "black",
         image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
-        sizes:{},
+        sizes:{w: "20cm", l: "20cm"},
         quantity: 2,
         price: 21
         },
         {name:"kedk1",
-        color: "black",
         image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
-        sizes:{},
+        sizes:{w: "20cm", l: "20cm"},
         quantity: 2,
         price: 22
         },
         {name:"kekdsa1",
-        color: "black",
         image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
-        sizes:{},
+        sizes:{w: "20cm", l: "20cm"},
         quantity: 2,
         price: 12
         }
@@ -94,6 +95,14 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 products: action.payload,
                 center_class: "no-center"
+            }
+
+            case "REMOVE_FAVORITE_THING": {          
+                const newCart = state.cart.filter( el => el.name !== action.payload )  
+              return{
+                  ...state,
+                  cart: newCart
+              }
             }
 
         case "COUNT_LOAD":
