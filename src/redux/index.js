@@ -37,9 +37,14 @@ export const count_load = () => ({
     type: "COUNT_LOAD"
 })
 
+export const setdeliviery = (d_price) => ({
+    type: "SET_DELIVIERY",
+    payload: d_price
+})
+
 export function removeFavoriteThing(thing) {
     return {
-        type: "REMOVE_FAVORITE_THING",
+        type: "REMOVE_THING",
         payload: thing
     }
 }
@@ -54,6 +59,7 @@ const initialState = {
     isloaded: 0,
     category: "dog",
     center_class: "center",
+    deliviery: 0,
     cart: [
         {name:"keweqk1",
         image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
@@ -97,7 +103,7 @@ const reducer = (state = initialState, action) => {
                 center_class: "no-center"
             }
 
-            case "REMOVE_FAVORITE_THING": {          
+            case "REMOVE_THING": {          
                 const newCart = state.cart.filter( el => el.name !== action.payload )  
               return{
                   ...state,
@@ -109,6 +115,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isloaded: state.isloaded + 1
+            }
+
+        case "SET_DELIVIERY":
+            return {
+                ...state,
+                deliviery: action.payload
             }
 
         case "CHANGE_CATEGORY_NAME":

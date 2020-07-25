@@ -1,0 +1,47 @@
+@import "./utilities";
+@import "./functions";
+
+.inpost_container, .dpd_container, .error_adres{
+    @include display-flex( column, flex-start );
+    align-items: flex-start;
+    min-height: calc(100vh - 12em);;
+    max-width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    & div{
+        & form {
+            & span {
+                @include display-flex(column, flex-start)
+            }
+        }
+    }
+}
+
+.inpost_map{
+    margin: 0;
+    width: 100%;
+    display: flex;
+}
+
+@media only screen and (max-width: 901px) {
+    .inpost_container, .dpd_container{
+        & h1{
+            margin-top: 3rem;
+        }
+        & div{
+            @include display-flex(column, center)
+        }
+    }
+}
+
+
+@media only screen and (min-width: 901px) {
+    .inpost_container, .dpd_container{
+        & h1{
+            margin-top: 6rem;
+        }
+        & div{
+            @include display-flex(row, center)
+        }
+    }
+}

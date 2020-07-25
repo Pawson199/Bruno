@@ -1,12 +1,39 @@
-import React, {useState} from 'react'
+import React, {useRef, useEffect} from 'react'
 import {connect} from "react-redux"
 import cart_img from '../images2/cart_image.svg'
+import dpd from '../images2/dpd_2.png'
+import inpost from '../images2/inpost_2.png'
 import {Button} from '../components/Button'
-import { removeFavoriteThing } from '../redux'
+import { removeFavoriteThing, setdeliviery } from '../redux'
+import {Link} from 'react-router-dom'
 
 function Cart(props) {
 
-const [ deliviery, setdeliviery ] = useState(0)
+const deliviery_inpost = useRef()
+const deliviery_dpd = useRef()
+
+useEffect(
+
+    () => {
+      if( props.products_in_cart.length > 0 ){
+        const del_arr = [ deliviery_dpd.current, deliviery_inpost.current ]   
+
+        del_arr.forEach( el => {
+            props.choosed_deliviery === +el.value ? el.checked = true : el.checked = false
+         } )
+      }
+    }
+    
+,[props.choosed_deliviery, props.products_in_cart])
+
+const whichDeliviery = () => {
+    if( props.choosed_deliviery === 13 || props.choosed_deliviery === 16 ){
+        return  <Button> <Link to="adress" > <button ><p>Zamów</p></button> </Link>  </Button>
+    }
+    else {
+        return <Button> <button onClick={ () => alert("Zaznacz metodę dostawy!") } ><p>Zamów</p></button> </Button>
+    }
+}
 
 const products = props.products_in_cart.map( el => 
     <span key={el.name} >
@@ -50,19 +77,18 @@ const sum = () => {
                             <div>
                                 <p><b>Wybierz metodę dostawy:</b> </p>
                                 <span>
-                                    <input onClick={ e => setdeliviery(e.target.value) } value="13" name="deliviery" type="radio"></input>
-                                    <label><b>Inpost</b> 13PLN</label>
+                                    <input onClick={ () => props.setdeliviery(13) } value="13" ref={deliviery_inpost} name="deliviery" type="radio"></input>
+                                    <label><img alt="inpost_logo" src={inpost} /> 13 PLN</label>
                                 </span>
                                 <span>
-                                    <input onClick={ e => setdeliviery(e.target.value) } value="16" name="deliviery" type="radio"></input>
-                                    <label><b>Kurier</b> 16PLN </label>
+                                    <input onClick={ () => props.setdeliviery(16) } value="16" ref={deliviery_dpd} name="deliviery" type="radio"></input>
+                                    <label><img alt="dpd_logo" src={dpd} /> 16 PLN </label>
                                 </span>
                             </div>
                         <hr></hr>
-                        <p><b>Suma:</b> {sum() + parseInt(deliviery) } PLN </p>    
+                        <p><b>Suma:</b> {sum() + props.choosed_deliviery } PLN </p>    
                     </div>
-
-                    <Button> <button ><p>Zamów</p></button>  </Button>
+                    {whichDeliviery()}
                 </div>  
                 <div id="easypack-map"></div>
             </div>
@@ -80,6 +106,7 @@ const sum = () => {
 
 export default connect(state => (
     {
-      products_in_cart : state.cart
+      products_in_cart : state.cart,
+      choosed_deliviery: state.deliviery
     }
-  ), { removeFavoriteThing })(Cart)
+  ), { removeFavoriteThing, setdeliviery })(Cart)
