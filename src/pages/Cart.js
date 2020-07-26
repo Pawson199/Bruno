@@ -75,7 +75,7 @@ const sum = () => {
                     <div className="sum">
                         <p><b>Produkty:</b> {sum()} PLN </p>
                             <div>
-                                <p><b>Wybierz metodę dostawy:</b> </p>
+                                <p><b>Metoda dostawy:</b> </p>
                                 <span>
                                     <input onClick={ () => props.setdeliviery(13) } value="13" ref={deliviery_inpost} name="deliviery" type="radio"></input>
                                     <label><img alt="inpost_logo" src={inpost} /> 13 PLN</label>

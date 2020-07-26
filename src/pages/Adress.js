@@ -1,28 +1,46 @@
 import React, {useEffect, useState} from 'react'
-import Map from '../components/Map'
 import {connect} from "react-redux"
 import {Button} from '../components/Button'
 
 function Adress(props) {
 
-let [ price_off_all, setprice_off_all ] = useState(0)
+    const [ price_off_all, setprice_off_all ] = useState(0)
+    const [ paczkomat, setpaczkomat ] = useState({})
 
- useEffect( () => {
-    let price = 0
-    props.products_in_cart.forEach( el => price += el.price  )
-    setprice_off_all(price)
- },[props.products_in_cart])
+    useEffect( () => {
+        let price = 0
+        props.products_in_cart.forEach( el => price += el.price  )
+        setprice_off_all(price)
+    },[props.products_in_cart])
+
+    window.easyPackAsyncInit = function () {
+        global.easyPack.init({
+            defaultLocale: 'pl',
+            mapType: 'osm',
+            searchType: 'osm',
+            points: {
+                types: ['parcel_locker']
+            },
+            map: {
+                initialTypes: ['parcel_locker']
+            }
+        });
+    };
+    function openModal() {
+        global.easyPack.modalMap(function(point, modal) {
+        modal.closeModal();
+        setpaczkomat(point)
+        }, { width: 800, height: 600 });
+    }
 
     const summary = () => (
-        <div>
-            <p>Wartość produktów:{price_off_all}</p>
-            <p>Koszt dostawy:{props.choosed_deliviery}</p>
-            <p>Suma:{price_off_all + props.choosed_deliviery}</p>
+        <div className="summary_in_deliviery" >
+            <h2><b>Do zapłaty:  </b>{price_off_all + props.choosed_deliviery}PLN</h2>
             <span>
                 <input type="checkbox"></input>
-                <p>Akceptuję regulamin serwisu i zapoznałem/am się z informacjami dotyczącymi moich danych osobowych zamieszczonymi w polityce prywatności.</p>
+                <p><small>Akceptuję regulamin serwisu i zapoznałem/am się z informacjami dotyczącymi moich danych osobowych zamieszczonymi w polityce prywatności.</small></p>
             </span>
-            <Button><button><p>Zapłać</p></button></Button>
+            <Button><button onClick={ () => console.log(paczkomat) } ><p>Płatność</p></button></Button>
         </div>
     )
 
@@ -53,14 +71,17 @@ let [ price_off_all, setprice_off_all ] = useState(0)
             return (
                 <div className="inpost_container" >
                     <h1>Dane do zamówienia</h1>
-                    <div>
+                    <div className="data_form" >
                         <form>
                         {basic_form()}
-                        </form>
-                        <h2>Wybierz paczkomat:</h2>
+                        <span>
+                            <label>Paczkomat</label>
+                            <input type="text" disabled placeholder={ paczkomat.address !== undefined ? `${paczkomat.address.line1}, ${paczkomat.address.line2}` : 'Wybierz paczkomat' } ></input>
+                        </span>
                         <div className="inpost_map">
-                            <Map></Map>
+                        <Button><button onClick={ (e) => { openModal(); e.preventDefault(); return false;}}><p>Paczkomaty</p></button></Button>
                         </div>
+                        </form>
                         {summary()}
                     </div>
                 </div>
@@ -70,7 +91,7 @@ let [ price_off_all, setprice_off_all ] = useState(0)
             return (
                 <div className="dpd_container" >
                     <h1>Dane do zamówienia</h1>
-                    <div>
+                    <div className="data_form" >
                         <form>
                         {basic_form()}
                             <span>
@@ -78,11 +99,7 @@ let [ price_off_all, setprice_off_all ] = useState(0)
                                 <input type="text" ></input>
                             </span>
                             <span>
-                                <label>Nr domu</label>
-                                <input type="number" ></input>
-                            </span>
-                            <span>
-                                <label>Nr lokalu</label>
+                                <label>Nr domu/lokalu</label>
                                 <input type="number" ></input>
                             </span>
                             <span>

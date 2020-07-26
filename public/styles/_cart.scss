@@ -95,6 +95,7 @@
     @include display-flex(column, center);
     background-color: rgba(218, 218, 218, 0.315);
     .sum{
+        width: 70%;
         margin-bottom: 1em;
             & div{
                 @include display-flex(column, flex-start);
@@ -129,6 +130,7 @@
                     & b{
                         color: black;
                         font-size: 1.2rem;
+                        margin-right: 0.5rem;
                     }
             }
     }
@@ -188,7 +190,7 @@
     }
     .product_image{
         & img{
-            max-width: 10em;
+            max-width: 9em;
         }
     }
 }

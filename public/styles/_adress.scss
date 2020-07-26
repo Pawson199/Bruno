@@ -8,10 +8,88 @@
     max-width: 80%;
     margin: 0 auto;
     box-sizing: border-box;
-    & div{
+    & h1{
+        @include font-size($dfb, $mfb);
+     }
+    & .data_form{
+        width: 100%;
         & form {
-            & span {
-                @include display-flex(column, flex-start)
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+            box-sizing: border-box;
+            & span{
+                margin-bottom: 2em;
+            }
+            & > * {
+                @include display-flex(column, flex-start);
+                align-items: flex-start;
+                width: 100%;
+                 & label{
+                     width: 100%;
+                     font-size: $dfs;
+                 }
+                 & input{
+                     width: 100%;
+                     padding: 0;
+                     margin: 0;
+                     border: 1px solid rgb(170, 170, 170);
+                     border-top: 0;
+                     border-left: 0;
+                     border-right: 0;
+                     height: 2em;
+                 }
+            }
+            & span:nth-child(3){ 
+                width: 45%;
+                padding-right: 5%;
+            }
+            & span:nth-child(4){ 
+                width: 50%;
+            }
+
+            & span:nth-child(7){ 
+                width: 45%;
+                padding-right: 5%;
+                margin-bottom: 0;
+            }
+            & span:nth-child(8){ 
+                width: 50%;
+                margin-bottom: 0;
+            }
+        }
+        .summary_in_deliviery{
+            padding: 2em;
+            box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+            box-sizing: border-box;
+            @include display-flex(column, flex-start);
+             & span{
+                @include display-flex( row, space-around );
+                min-width: 80%;
+                max-width: 80%;
+                & p{
+                    max-height: 5em;
+                    overflow-y: scroll;
+                    border: 1px solid rgb(224, 224, 224);
+                    border-right: 0;
+                    margin: 1rem 0 2rem 0;
+                    padding: 0.5rem; 
+                }
+                & input{
+                     margin-right: 1em;
+                 }
+             }
+             & h2{
+                 @include font-size($mfm,$mfmx2);
+                 margin: 1rem 0 1rem 0;
+                 color: grey;
+                    & b{
+                        color: black;
+                    }
+             }
+            & div{
+                margin-bottom: 1rem;
             }
         }
     }
@@ -21,16 +99,44 @@
     margin: 0;
     width: 100%;
     display: flex;
+        & div{
+            margin-left: 0;
+            & button{
+                background-color: $base-color;
+                    & p{
+                        color: white;
+                    }
+            }
+            &::after{
+                background-color: white;
+            }
+        }
 }
 
 @media only screen and (max-width: 901px) {
     .inpost_container, .dpd_container{
         & h1{
-            margin-top: 3rem;
+            margin: 3rem 0;
         }
-        & div{
-            @include display-flex(column, center)
+        & .data_form{
+            @include display-flex(column, center);
+                & .summary_in_deliviery{
+                    width: 100%;
+                    margin: 3rem 0;
+                }
+                & form {
+                    width: 100%;
+                    padding: 2em 1em;
+                }
         }
+    }
+    .widget-modal{
+        height: 100vh !important;
+        max-height: 100% !important;
+        width: 100vw !important;
+        max-width: 100% !important;
+        overflow-y: hidden !important;
+        overflow-x: hidden !important;
     }
 }
 
@@ -39,9 +145,18 @@
     .inpost_container, .dpd_container{
         & h1{
             margin-top: 6rem;
+            margin-bottom: 3rem;
         }
-        & div{
-            @include display-flex(row, center)
+        & .data_form{
+            @include display-flex(row, flex-start);
+            & .summary_in_deliviery{
+                width: 40%;
+            }
+            & form {
+                width: 50%;
+                margin-right: auto;
+                padding: 2em;
+            }
         }
     }
 }

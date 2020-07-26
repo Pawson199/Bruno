@@ -1799,6 +1799,7 @@ body, html {
 }
 
 .summary .sum {
+  width: 70%;
   margin-bottom: 1em;
 }
 
@@ -1882,6 +1883,7 @@ body, html {
 .summary .sum p b {
   color: black;
   font-size: 1.2rem;
+  margin-right: 0.5rem;
 }
 
 .summary div button {
@@ -1944,7 +1946,7 @@ body, html {
     margin-bottom: 3em;
   }
   .product_image img {
-    max-width: 10em;
+    max-width: 9em;
   }
 }
 
@@ -2027,7 +2029,101 @@ body, html {
           box-sizing: border-box;
 }
 
-.inpost_container div form span, .dpd_container div form span, .error_adres div form span {
+@media only screen and (max-width: 900px) {
+  .inpost_container h1, .dpd_container h1, .error_adres h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .inpost_container h1, .dpd_container h1, .error_adres h1 {
+    font-size: 2.6rem;
+  }
+}
+
+.inpost_container .data_form, .dpd_container .data_form, .error_adres .data_form {
+  width: 100%;
+}
+
+.inpost_container .data_form form, .dpd_container .data_form form, .error_adres .data_form form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.inpost_container .data_form form span, .dpd_container .data_form form span, .error_adres .data_form form span {
+  margin-bottom: 2em;
+}
+
+.inpost_container .data_form form > *, .dpd_container .data_form form > *, .error_adres .data_form form > * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+}
+
+.inpost_container .data_form form > * label, .dpd_container .data_form form > * label, .error_adres .data_form form > * label {
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.inpost_container .data_form form > * input, .dpd_container .data_form form > * input, .error_adres .data_form form > * input {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #aaaaaa;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  height: 2em;
+}
+
+.inpost_container .data_form form span:nth-child(3), .dpd_container .data_form form span:nth-child(3), .error_adres .data_form form span:nth-child(3) {
+  width: 45%;
+  padding-right: 5%;
+}
+
+.inpost_container .data_form form span:nth-child(4), .dpd_container .data_form form span:nth-child(4), .error_adres .data_form form span:nth-child(4) {
+  width: 50%;
+}
+
+.inpost_container .data_form form span:nth-child(7), .dpd_container .data_form form span:nth-child(7), .error_adres .data_form form span:nth-child(7) {
+  width: 45%;
+  padding-right: 5%;
+  margin-bottom: 0;
+}
+
+.inpost_container .data_form form span:nth-child(8), .dpd_container .data_form form span:nth-child(8), .error_adres .data_form form span:nth-child(8) {
+  width: 50%;
+  margin-bottom: 0;
+}
+
+.inpost_container .data_form .summary_in_deliviery, .dpd_container .data_form .summary_in_deliviery, .error_adres .data_form .summary_in_deliviery {
+  padding: 2em;
+  -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2043,6 +2139,61 @@ body, html {
           flex-direction: column;
 }
 
+.inpost_container .data_form .summary_in_deliviery span, .dpd_container .data_form .summary_in_deliviery span, .error_adres .data_form .summary_in_deliviery span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  min-width: 80%;
+  max-width: 80%;
+}
+
+.inpost_container .data_form .summary_in_deliviery span p, .dpd_container .data_form .summary_in_deliviery span p, .error_adres .data_form .summary_in_deliviery span p {
+  max-height: 5em;
+  overflow-y: scroll;
+  border: 1px solid #e0e0e0;
+  border-right: 0;
+  margin: 1rem 0 2rem 0;
+  padding: 0.5rem;
+}
+
+.inpost_container .data_form .summary_in_deliviery span input, .dpd_container .data_form .summary_in_deliviery span input, .error_adres .data_form .summary_in_deliviery span input {
+  margin-right: 1em;
+}
+
+.inpost_container .data_form .summary_in_deliviery h2, .dpd_container .data_form .summary_in_deliviery h2, .error_adres .data_form .summary_in_deliviery h2 {
+  margin: 1rem 0 1rem 0;
+  color: grey;
+}
+
+@media only screen and (max-width: 900px) {
+  .inpost_container .data_form .summary_in_deliviery h2, .dpd_container .data_form .summary_in_deliviery h2, .error_adres .data_form .summary_in_deliviery h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .inpost_container .data_form .summary_in_deliviery h2, .dpd_container .data_form .summary_in_deliviery h2, .error_adres .data_form .summary_in_deliviery h2 {
+    font-size: 1.4rem;
+  }
+}
+
+.inpost_container .data_form .summary_in_deliviery h2 b, .dpd_container .data_form .summary_in_deliviery h2 b, .error_adres .data_form .summary_in_deliviery h2 b {
+  color: black;
+}
+
+.inpost_container .data_form .summary_in_deliviery div, .dpd_container .data_form .summary_in_deliviery div, .error_adres .data_form .summary_in_deliviery div {
+  margin-bottom: 1rem;
+}
+
 .inpost_map {
   margin: 0;
   width: 100%;
@@ -2051,11 +2202,27 @@ body, html {
   display: flex;
 }
 
+.inpost_map div {
+  margin-left: 0;
+}
+
+.inpost_map div button {
+  background-color: #EEBB39;
+}
+
+.inpost_map div button p {
+  color: white;
+}
+
+.inpost_map div::after {
+  background-color: white;
+}
+
 @media only screen and (max-width: 901px) {
   .inpost_container h1, .dpd_container h1 {
-    margin-top: 3rem;
+    margin: 3rem 0;
   }
-  .inpost_container div, .dpd_container div {
+  .inpost_container .data_form, .dpd_container .data_form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2070,19 +2237,36 @@ body, html {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .inpost_container .data_form .summary_in_deliviery, .dpd_container .data_form .summary_in_deliviery {
+    width: 100%;
+    margin: 3rem 0;
+  }
+  .inpost_container .data_form form, .dpd_container .data_form form {
+    width: 100%;
+    padding: 2em 1em;
+  }
+  .widget-modal {
+    height: 100vh !important;
+    max-height: 100% !important;
+    width: 100vw !important;
+    max-width: 100% !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+  }
 }
 
 @media only screen and (min-width: 901px) {
   .inpost_container h1, .dpd_container h1 {
     margin-top: 6rem;
+    margin-bottom: 3rem;
   }
-  .inpost_container div, .dpd_container div {
+  .inpost_container .data_form, .dpd_container .data_form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -2090,6 +2274,14 @@ body, html {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+  .inpost_container .data_form .summary_in_deliviery, .dpd_container .data_form .summary_in_deliviery {
+    width: 40%;
+  }
+  .inpost_container .data_form form, .dpd_container .data_form form {
+    width: 50%;
+    margin-right: auto;
+    padding: 2em;
   }
 }
 /*# sourceMappingURL=main.css.map */
