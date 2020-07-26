@@ -2153,14 +2153,13 @@ body, html {
       -ms-flex-direction: row;
           flex-direction: row;
   min-width: 80%;
-  max-width: 80%;
+  max-width: 92%;
 }
 
 .inpost_container .data_form .summary_in_deliviery span p, .dpd_container .data_form .summary_in_deliviery span p, .error_adres .data_form .summary_in_deliviery span p {
   max-height: 5em;
   overflow-y: scroll;
   border: 1px solid #e0e0e0;
-  border-right: 0;
   margin: 1rem 0 2rem 0;
   padding: 0.5rem;
 }

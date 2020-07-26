@@ -67,12 +67,11 @@
              & span{
                 @include display-flex( row, space-around );
                 min-width: 80%;
-                max-width: 80%;
+                max-width: 92%;
                 & p{
                     max-height: 5em;
                     overflow-y: scroll;
                     border: 1px solid rgb(224, 224, 224);
-                    border-right: 0;
                     margin: 1rem 0 2rem 0;
                     padding: 0.5rem; 
                 }
