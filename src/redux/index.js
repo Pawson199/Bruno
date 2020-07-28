@@ -15,18 +15,38 @@ export const change_category = (category) => {
 
         client.getEntries({content_type: category})
         .then((response) => { 
+            console.log(response)
           const products_new =  response.items.map( el =>
           ({
             id: el.sys.id,
-            cena: el.fields.Price,
-            nazwa: el.fields.Name,
-            photo_url: el.fields.Photo.fields.file.url 
+            cena: el.fields.cena,
+            category: el.fields.kategoria,
+            nazwa: el.fields.nazwa,
+            photo_url: el.fields.zdjecie.fields.file.url 
           })
           )
           dispatch({
             type: "CHANGE_CATEGORY",
             payload: products_new
           })
+          })
+        .catch(console.error)
+    }
+
+}
+
+export const getItem = (category1, name_of_item) => {
+    
+    return (dispatch) => {
+
+        client.getEntries({content_type: category1})
+        .then((response) => { 
+         const newItem = response.items.filter( el => el.fields.Name === name_of_item )
+          dispatch({
+            type: "GET_ITEM",
+            payload: newItem
+          })
+
           })
         .catch(console.error)
     }
@@ -56,8 +76,9 @@ export const change_category_name = (category) => ({
 
 const initialState = { 
     products: [],
+    oneItem: [],
     isloaded: 0,
-    category: "dog",
+    category: "Obroze",
     center_class: "center",
     deliviery: 0,
     cart: [
@@ -108,6 +129,13 @@ const reducer = (state = initialState, action) => {
               return{
                   ...state,
                   cart: newCart
+              }
+            }
+
+            case "GET_ITEM": {         
+              return{
+                  ...state,
+                  oneItem: action.payload
               }
             }
 

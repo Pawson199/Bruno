@@ -31,9 +31,9 @@ function Offers(props) {
       }
   }, [])
 
-
+  
   const mapIt = () => {
-   return props.productarray.map( (el) => <Product key={el.id} name={el.nazwa} price={el.cena} src={el.photo_url} /> )
+   return props.productarray.map( (el) => <Product category={el.category} key={el.id} name={el.nazwa} price={el.cena} src={el.photo_url} /> )
   }
   const products = props.productarray.length > 0 
   ? 
@@ -52,7 +52,9 @@ function Offers(props) {
                 fun={change_category} 
                 cat={change_category_name}
                 category_name={props.category_name}
-                categories={["dog", "smycze", "kocie", "zestaw", "adresaty", "torby", "portfele", "akcesoria"]} 
+                categories={[["Obroże", "Obroze"], ["Smycze", "Smycze"],
+                            ["Zestawy", "Zestawy"], ["Adresatki", "Adresatki"], 
+                            ["Torby", "Torby"], ["Portfele", "Portfele"]]} 
             />
             </span>
             <div className={`offers ${props.center}`}>

@@ -49,10 +49,12 @@ body, html{
     background-color: $base-color;
     border-bottom: 2px black solid;
     z-index: 999;
+    transition: 300ms ease-in-out;
         .logo-container{
             height: 100%;
             width: auto;
             & img{
+                transition: 300ms ease-in-out;
                 width: auto;
                 height: 80%; 
             }
@@ -73,6 +75,7 @@ body, html{
                         transform: translateY(-2px);
                     }
                    a{
+                            transition: 300ms ease-in-out;
                             text-decoration: none;
                             color: black;
                             @include font-size( $dfm, $mfm );
@@ -126,9 +129,10 @@ body, html{
 
 @media only screen and (min-width: 901px) {
   .menu{
-     ul{
-        padding-left: 2em;}
-     & .logo-container{
+    ul{
+        padding-left: 2em;
+    }
+    & .logo-container{
          position: relative;
          height: 100%;
         & img{
@@ -141,6 +145,22 @@ body, html{
         margin-right: 2em ;
     }
   }
+  .small{
+    height: 4em;
+        & .logo-container{
+            & img{
+                height: 6em;
+                bottom: -3em;
+            }
+        }
+        & ul{
+            & li{
+                & a{
+                    font-size: $dfm;
+                }
+            }
+        }
+    }
 }
 
 

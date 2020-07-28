@@ -10,6 +10,7 @@ function Menu(props) {
     const [permission, setPermission] = useState("display_off")
     const [burger, setBurger] = useState('no-cross')
     const [ burgerornot, setburgerornot ] = useState(false)
+    const [ menuclass, setmenuclass ] = useState("")
     
     const setPermissionOnClick = () => {
       setPermission( 
@@ -24,14 +25,19 @@ function Menu(props) {
     function checkWidth() {
         window.innerWidth < 900 ? setburgerornot(false) : setburgerornot(true)
     }
+    function checkHeight() {
+      window.pageYOffset > 80 ? setmenuclass('small') : setmenuclass('')
+  }
 
     useEffect(() => {
 
         window.innerWidth < 900 ? setburgerornot(false) : setburgerornot(true)
 
-        window.addEventListener('resize',  checkWidth )
+        window.addEventListener('resize',  checkWidth)
+        window.addEventListener('scroll', checkHeight)
         return () => {
-            window.removeEventListener('resize', checkWidth)
+            window.removeEventListener('resize', checkWidth);
+            window.removeEventListener('scroll', checkHeight)
         }
     }, [])
 
@@ -60,7 +66,7 @@ function Menu(props) {
 
 
     return (
-        <nav className="menu">
+        <nav className={`menu ${menuclass}`}>
             {burgerornot  ? classic_menu() : burger_menu()}
             <div className="logo-container">
               <img onClick={ () =>  history.replace('/')} alt="logo" src={logo}/> 
