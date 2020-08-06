@@ -52,9 +52,9 @@ function Offers(props) {
                 fun={change_category} 
                 cat={change_category_name}
                 category_name={props.category_name}
-                categories={[["Obroże", "Obroze"], ["Smycze", "Smycze"],
-                            ["Zestawy", "Zestawy"], ["Adresatki", "Adresatki"], 
-                            ["Torby", "Torby"], ["Portfele", "Portfele"]]} 
+                categories={["Obroże", "Smycze",
+                            "Zestawy", "Adresatki", 
+                            "Torby", "Portfele"]} 
             />
             </span>
             <div className={`offers ${props.center}`}>

@@ -1174,7 +1174,7 @@ body, html {
   transition: opacity 500ms linear;
 }
 
-.offers_container .offers div span img:hover {
+.offers_container .offers div span img :hover {
   -webkit-filter: brightness(1.3);
           filter: brightness(1.3);
 }
@@ -2311,5 +2311,41 @@ body, html {
     margin-right: auto;
     padding: 2em;
   }
+}
+
+.product_container {
+  min-height: calc(100vh - 12em);
+  width: 80%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 900px) {
+  .product_container h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .product_container h1 {
+    font-size: 2.6rem;
+  }
+}
+
+.product_container .products_and_summary {
+  width: 100%;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=main.css.map */

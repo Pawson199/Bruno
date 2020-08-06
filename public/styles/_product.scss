@@ -1,0 +1,13 @@
+.product_container{
+    min-height: calc(100vh - 12em);
+    width: 80%;
+    margin: auto;
+     & h1{
+        @include font-size($dfb, $mfb);
+     }
+    & .products_and_summary{
+        width: 100%;
+        min-height: 100%;
+        @include display-flex(column, space-between)
+    }
+}

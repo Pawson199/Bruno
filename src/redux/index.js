@@ -13,7 +13,7 @@ export const change_category = (category) => {
     
     return (dispatch) => {
 
-        client.getEntries({content_type: category})
+        client.getEntries({content_type: category === "Obroże" ? "Obroze" : category })
         .then((response) => { 
             console.log(response)
           const products_new =  response.items.map( el =>
@@ -32,25 +32,6 @@ export const change_category = (category) => {
           })
         .catch(console.error)
     }
-
-}
-
-export const getItem = (category1, name_of_item) => {
-    
-    return (dispatch) => {
-
-        client.getEntries({content_type: category1})
-        .then((response) => { 
-         const newItem = response.items.filter( el => el.fields.Name === name_of_item )
-          dispatch({
-            type: "GET_ITEM",
-            payload: newItem
-          })
-
-          })
-        .catch(console.error)
-    }
-
 }
 
 export const count_load = () => ({
@@ -76,9 +57,8 @@ export const change_category_name = (category) => ({
 
 const initialState = { 
     products: [],
-    oneItem: [],
     isloaded: 0,
-    category: "Obroze",
+    category: "Obroże",
     center_class: "center",
     deliviery: 0,
     cart: [
@@ -129,13 +109,6 @@ const reducer = (state = initialState, action) => {
               return{
                   ...state,
                   cart: newCart
-              }
-            }
-
-            case "GET_ITEM": {         
-              return{
-                  ...state,
-                  oneItem: action.payload
               }
             }
 

@@ -7,9 +7,9 @@ export default function Select(props) {
     const categories = props.categories.map( el => {
 
         return (
-                <label onClick={ (e) => {props.fun(e.target.value); props.cat(el[1]); setactive( prev => !prev )} } key={el}>
-                    <p className="category_font" >{el[0]}</p>
-                    <input type="radio" value={el[0]} name="category" />
+                <label onClick={ (e) => {props.fun(e.target.value); props.cat(el); setactive( prev => !prev )} } key={el}>
+                    <p className="category_font" >{ el }</p>
+                    <input type="radio" value={el} name="category" />
                 </label>
         )
     })
@@ -17,7 +17,7 @@ export default function Select(props) {
     return (
         <form  className="custom_select">
                 <span onClick={ (e) => { e.preventDefault(); setactive( prev => !prev ) } } className="category_plate"> 
-                    <p className="category_font" >{ props.category_name === 'Obroze' ? "Obroże" : props.category_name}</p> 
+                    <p className="category_font" >{props.category_name}</p> 
                     <i className={`ri-arrow-down-s-line ${active}`}></i> 
                 </span>
                 <div className={`category_plate_options ${active}`} >

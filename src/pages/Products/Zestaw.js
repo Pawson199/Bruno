@@ -1,29 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import {connect} from "react-redux"
-import { getItem } from '../../redux'
+import getItemHook from './dataFetcher/itemsGetterHook'
 
-function Zestaw(props) {
+export default function Zestaw(props) {
 
     const {productName, zestaw } = useParams
-    const { getItem } = props
+    const [item_details, set_item_details] = useState([])
 
     useEffect(
         () => {
-            getItem(productName, zestaw)
+            getItemHook("Zestawy", productName, set_item_details) 
         },
-    [getItem, productName, zestaw])
+    [productName, zestaw])
+
+    console.log(item_details)
 
     return (
-        <div>
+        <div className="product_container">
             Zestawy
         </div>
     )
 }
-
-
-export default connect(state => (
-    {
-     item: state.oneItem,
-    }
-  ), {getItem})(Zestaw)
