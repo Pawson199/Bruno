@@ -24,7 +24,7 @@ function App() {
         <Route path="/Obroze/:productName"> <PsiaObrozaDetail/> </Route>
         <Route path="/Adresatki/:productName"> <Adresatka/> </Route>
         <Route path="/Zestawy/:productName"> <Zestaw/> </Route>
-        <Route path="/Torebki/:productName"> <TorebkaDetail/> </Route>
+        <Route path="/Torby/:productName"> <TorebkaDetail/> </Route>
         <Route path="/Portfele/:productName"> <PortfelDetail/> </Route>
         <Route path="/Smycze/:productName"> <SmyczDetail/> </Route>
       </Switch>

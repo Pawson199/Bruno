@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import  getItemHook from './dataFetcher/itemsGetterHook'
+import {Button} from '../../components/Button'
+import { Link } from 'react-router-dom'
 
 export default function PortfelDetail(props) {
     const {productName} = useParams()
@@ -15,7 +17,22 @@ export default function PortfelDetail(props) {
 
     return (
         <div className="product_container">
-            Portfele
+        <span>
+            <i></i>
+            <Link><p> Wróć do ofert </p></Link>
+        </span>
+        <div>
+            Tutaj będą zdjęcia
         </div>
+        <div>
+            <h1>Nazwa produktu</h1>
+            <div>
+                <span>Opis</span>
+                <span>Cena</span>
+            </div>
+        </div>
+        <span>Ilość</span>
+        <Button>Dodaj do koszyka</Button>
+    </div>
     )
 }
