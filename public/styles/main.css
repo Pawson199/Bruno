@@ -1378,6 +1378,8 @@ body, html {
       -ms-flex-direction: row;
           flex-direction: row;
   position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .offers_container .offers .spinner span {

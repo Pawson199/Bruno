@@ -31,6 +31,9 @@ function Offers(props) {
       }
   }, [])
 
+  const delete_products_array = () => {
+    props.productarray.length = 0
+  }
   
   const mapIt = () => {
    return props.productarray.map( (el) => <Product category={el.category} key={el.id} name={el.nazwa} price={el.cena} src={el.photo_url} /> )
@@ -49,6 +52,7 @@ function Offers(props) {
           <div className="ornament">  </div>
             <span className="category_button" >
               <Select 
+                delete_products={delete_products_array}
                 fun={change_category} 
                 cat={change_category_name}
                 category_name={props.category_name}

@@ -7,7 +7,7 @@ export default function Select(props) {
     const categories = props.categories.map( el => {
 
         return (
-                <label onClick={ (e) => {props.fun(e.target.value); props.cat(el); setactive( prev => !prev )} } key={el}>
+                <label onClick={ (e) => {props.fun(e.target.value); props.delete_products(); props.cat(el); setactive( prev => !prev )} } key={el}>
                     <p className="category_font" >{ el }</p>
                     <input type="radio" value={el} name="category" />
                 </label>
