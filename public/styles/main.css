@@ -2535,6 +2535,10 @@ body, html {
   text-decoration: none;
 }
 
+.product_container .back_to_offers_button p {
+  margin: 0;
+}
+
 .product_container .product_gallery {
   width: 100%;
   max-width: 25rem;
@@ -2574,13 +2578,13 @@ body, html {
 
 .product_container .product_info_image_info div span:nth-child(1) {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   color: #464545;
 }
 
 @media only screen and (max-width: 900px) {
   .product_container .product_info_image_info div span:nth-child(1) {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -2644,7 +2648,7 @@ body, html {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  padding: 1rem;
+  padding: 0.6rem;
 }
 
 .product_container .quantity p {
@@ -2693,7 +2697,7 @@ body, html {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  padding: 0.5rem;
+  padding: 0.6rem;
   border: 1px black solid;
 }
 
