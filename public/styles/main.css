@@ -1,3 +1,27 @@
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.purple {
+  background-color: purple;
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -131,6 +155,30 @@ body, html {
   .menu ul li a {
     font-size: 1.2rem;
   }
+}
+
+.menu .red {
+  background-color: red;
+}
+
+.menu .green {
+  background-color: green;
+}
+
+.menu .yellow {
+  background-color: yellow;
+}
+
+.menu .pink {
+  background-color: pink;
+}
+
+.menu .brown {
+  background-color: brown;
+}
+
+.menu .purple {
+  background-color: purple;
 }
 
 .menu .burgerek {
@@ -390,6 +438,30 @@ body, html {
   .menu .cart {
     margin-right: 5em;
   }
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.purple {
+  background-color: purple;
 }
 
 .image_test {
@@ -923,6 +995,30 @@ body, html {
   }
 }
 
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.purple {
+  background-color: purple;
+}
+
 .custom_select {
   position: relative;
 }
@@ -1071,6 +1167,30 @@ body, html {
   .category_font {
     font-size: 1.2rem;
   }
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.purple {
+  background-color: purple;
 }
 
 .offers_container {
@@ -1518,7 +1638,7 @@ body, html {
 
 @media only screen and (min-width: 901px) {
   .contact_container h1 {
-    margin: 6rem 0 2em 0;
+    margin: 6rem 0 3rem 0;
     width: 100%;
     text-align: left;
   }
@@ -1539,7 +1659,7 @@ body, html {
     height: 3em;
   }
   .contact_container form .paragraph:nth-child(2) label textarea {
-    height: 18em;
+    height: 15em;
   }
   .contact_container form div {
     margin: 3.5em 0 6em;
@@ -1566,6 +1686,30 @@ body, html {
     text-align: left;
     margin: 0;
   }
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.purple {
+  background-color: purple;
 }
 
 .cart_container {
@@ -2031,6 +2175,30 @@ body, html {
   }
 }
 
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.purple {
+  background-color: purple;
+}
+
 .inpost_container, .dpd_container, .error_adres {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2313,33 +2481,85 @@ body, html {
   }
 }
 
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.purple {
+  background-color: purple;
+}
+
 .product_container {
   min-height: calc(100vh - 12em);
   width: 80%;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 @media only screen and (max-width: 900px) {
-  .product_container h1 {
-    font-size: 1.4rem;
+  .product_container .back_to_offers_button {
+    font-size: 0.8rem;
   }
 }
 
 @media only screen and (min-width: 900px) {
-  .product_container h1 {
-    font-size: 2.6rem;
+  .product_container .back_to_offers_button {
+    font-size: 1rem;
   }
 }
 
-.product_container .products_and_summary {
+.product_container .back_to_offers_button a {
+  color: black;
+  text-decoration: none;
+}
+
+.product_container .product_gallery {
   width: 100%;
-  min-height: 100%;
+  max-width: 25rem;
+}
+
+.product_container .product_gallery img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.product_container label {
+  margin-top: 2rem;
+}
+
+.product_container .product_info_image_info {
+  margin-left: 2rem;
+}
+
+.product_container .product_info_image_info div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2347,5 +2567,233 @@ body, html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.product_container .product_info_image_info div span:nth-child(1) {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #464545;
+}
+
+@media only screen and (max-width: 900px) {
+  .product_container .product_info_image_info div span:nth-child(1) {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .product_container .product_info_image_info div span:nth-child(1) {
+    font-size: 1rem;
+  }
+}
+
+.product_container .product_info_image_info div span:nth-child(2) {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.product_container .product_info_image_info div span:nth-child(2) small {
+  margin-left: 0.3rem;
+  margin-top: auto;
+}
+
+.product_container .product_info_image_info div span:nth-child(2) p {
+  margin: 0;
+  margin-top: auto;
+}
+
+@media only screen and (max-width: 900px) {
+  .product_container .product_info_image_info div span:nth-child(2) p {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .product_container .product_info_image_info div span:nth-child(2) p {
+    font-size: 1.4rem;
+  }
+}
+
+.product_container .quantity {
+  width: 9rem;
+  border: 1px black solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 1rem;
+}
+
+.product_container .quantity p {
+  height: 100%;
+  margin: 0;
+}
+
+.product_container .button_add_to_cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 4rem 0;
+}
+
+.sizes {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  -ms-grid-columns: (minmax(10rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-gap: 1rem;
+}
+
+.sizes span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 0.5rem;
+  border: 1px black solid;
+}
+
+.sizes span small {
+  margin-left: 0.5rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .sizes span small {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .sizes span small {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .sizes span b {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .sizes span b {
+    font-size: 0.9rem;
+  }
+}
+
+.colors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.colors span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 2rem;
+  width: 2rem;
+  margin-right: 0.5rem;
+  border: 1px black solid;
+}
+
+@media only screen and (max-width: 901px) {
+  .product_info_image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .product_info_image .product_info_image_info {
+    margin-left: 0;
+  }
+  .back_to_offers_button {
+    margin: 3rem 0 1.5rem 0;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .back_to_offers_button {
+    margin: 4rem 0 2rem 0;
+  }
+  .product_info_image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .product_gallery {
+    min-width: 25rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */

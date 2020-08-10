@@ -18,19 +18,22 @@ export default function SmyczDetail(props) {
         console.log(item_details)
 
     return (
+        item_details.length > 0 ? 
         <div className="product_container" >
-        <span>
-            <i></i>
-            <Link><p> Wróć do ofert </p></Link>
+        <span className="back_to_offers_button" >
+                <i></i>
+                <Link><p> Wróć do ofert </p></Link>
         </span>
-        <div>
-            Tutaj będą zdjęcia
-        </div>
-        <div>
-            <h1>Nazwa produktu</h1>
+        <div className="product_info_image" >
+            <div className="product_gallery" >
+                <img alt="product" src={item_details[0].fields.zdjecie.fields.file.url} />
+            </div>
             <div>
-                <span>Opis</span>
-                <span>Cena</span>
+                <h1>Nazwa produktu</h1>
+                <div>
+                    <span>Opis</span>
+                    <span>Cena</span>
+                </div>
             </div>
         </div>
         <Select
@@ -52,5 +55,7 @@ export default function SmyczDetail(props) {
         <span>Ilość</span>
         <Button>Dodaj do koszyka</Button>
     </div>
+    :
+    <div>ni ma</div>
     )
 }

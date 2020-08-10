@@ -10,6 +10,7 @@ export default function getItem(category1, name_of_item, set_items) {
     client.getEntries({content_type: category1})
         .then((response) => { 
             set_items( response.items.filter( el => el.fields.nazwa === name_of_item ) )
+            console.log(response)
         })
         .catch(console.error)
 }

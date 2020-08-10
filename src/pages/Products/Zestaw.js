@@ -7,31 +7,34 @@ import {Button} from '../../components/Button'
 
 export default function Zestaw(props) {
 
-    const {productName, zestaw } = useParams
     const [item_details, set_item_details] = useState([])
+    const {productName} = useParams()
 
     useEffect(
         () => {
             getItemHook("Zestawy", productName, set_item_details) 
         },
-    [productName, zestaw])
+    [productName])
 
     console.log(item_details)
 
     return (
+        item_details.length > 0 ? 
         <div className="product_container">
-            <span>
+            <span className="back_to_offers_button" >
                 <i></i>
                 <Link><p> Wróć do ofert </p></Link>
             </span>
-            <div>
-                Tutaj będą zdjęcia
-            </div>
-            <div>
-                <h1>Nazwa produktu</h1>
+            <div className="product_info_image" >
+                <div className="product_gallery" >
+                    <img alt="product" src={item_details[0].fields.zdjecie.fields.file.url} />
+                </div>
                 <div>
-                    <span>Opis</span>
-                    <span>Cena</span>
+                    <h1>{item_details[0].fields.nazwa}</h1>
+                    <div>
+                        <span>Opis</span>
+                        <span>Cena: {item_details[0].fields.cena}</span>
+                    </div>
                 </div>
             </div>
             <Select
@@ -53,5 +56,7 @@ export default function Zestaw(props) {
             <span>Ilość</span>
             <Button>Dodaj do koszyka</Button>
         </div>
+        :
+        <div>ni ma</div>
     )
 }

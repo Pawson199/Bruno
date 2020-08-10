@@ -1,13 +1,123 @@
+@import './utilities';
+
 .product_container{
     min-height: calc(100vh - 12em);
     width: 80%;
     margin: auto;
-     & h1{
-        @include font-size($dfb, $mfb);
+    display: flex;
+    flex-direction: column;
+     & .back_to_offers_button{
+        @include font-size($dfs, $mfs);
+         & a{
+             color: black;
+             text-decoration: none;
+         }
      }
-    & .products_and_summary{
-        width: 100%;
-        min-height: 100%;
-        @include display-flex(column, space-between)
+     & .product_gallery{
+         width: 100%;
+         max-width: 25rem;
+         & img{
+             max-width: 100%;
+             max-height: 100%;
+         }
+     }
+     & label{
+         margin-top: 2rem;
+     }
+     .product_info_image_info{
+        margin-left: 2rem;
+        & div{
+            @include display-flex(column, center);
+            align-items: flex-start;
+             & span:nth-child(1){
+                 width: 100%;
+                 margin-bottom: 1rem;
+                 @include font-size($dfm, $mfs);
+                 color: rgb(70, 69, 69);
+             }
+             & span:nth-child(2){
+                width: 100%;
+                @include display-flex(row, flex-start);
+                    & small{
+                        margin-left: 0.3rem;
+                        margin-top: auto;
+                    }
+                    & p{
+                        margin: 0;
+                        margin-top: auto;
+                        @include font-size($mfmx2, $mfmx2);
+                    }
+            }
+        }
+     }
+    .quantity{
+        width: 9rem;
+        border: 1px black solid;
+        @include display-flex(row, space-around);
+        padding: 1rem;
+            & p{
+                height: 100%;
+                margin: 0;
+            }
+    }
+    & .button_add_to_cart{
+       @include display-flex(row, center);
+       margin: 4rem 0; 
+    }
+}
+
+.sizes{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax( 10rem, 1fr ));
+    grid-gap: 1rem;
+    & span{
+        @include display-flex(row, center);
+        padding: 0.5rem;
+        border: 1px black solid;
+         & small{
+            margin-left: 0.5rem;
+            @include font-size($dfs , $mfxs);
+        }
+         & b{
+            @include font-size($dfs , $mfxs);
+         }
+    }
+}
+
+.colors{
+    @include display-flex(row, flex-start);
+        & span{
+            @include display-flex(row, center);
+            height: 2rem;
+            width: 2rem;
+            margin-right: 0.5rem;
+            border: 1px black solid;
+        }
+}
+
+@media only screen and (max-width: 901px) {
+    .product_info_image{
+        display: flex;
+        flex-direction: column;
+         .product_info_image_info{
+             margin-left: 0;
+         }
+    }
+    & .back_to_offers_button{
+       margin: 3rem 0 1.5rem 0;
+     }
+}
+
+@media only screen and (min-width: 901px) {
+    & .back_to_offers_button{
+        margin: 4rem 0 2rem 0
+     }
+     .product_info_image{
+        display: flex;
+        flex-direction: row;
+    }
+    & .product_gallery{
+        min-width: 25rem;
     }
 }
