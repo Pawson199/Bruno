@@ -63,9 +63,19 @@
                 margin: 0;
             }
     }
-    & .button_add_to_cart{
+    .button_add_to_cart{
        @include display-flex(row, center);
        margin: 4rem 0; 
+    }
+    .adresatka_content{
+            & textarea{
+                width: 100%;
+                resize: none;
+                margin: 0;
+                padding: 0;
+                border: 1px black solid;
+                height: 5rem;
+            }
     }
 }
 
@@ -107,20 +117,26 @@
              margin-left: 0;
          }
     }
-    & .back_to_offers_button{
+    .back_to_offers_button{
        margin: 3rem 0 1.5rem 0;
      }
+    .adresatka_content{
+        width: 14rem;
+    }
 }
 
 @media only screen and (min-width: 901px) {
-    & .back_to_offers_button{
+    .back_to_offers_button{
         margin: 4rem 0 2rem 0
      }
-     .product_info_image{
+    .product_info_image{
         display: flex;
         flex-direction: row;
     }
-    & .product_gallery{
+    .product_gallery{
         min-width: 25rem;
+    }
+    .adresatka_content{
+        width: 20rem;
     }
 }

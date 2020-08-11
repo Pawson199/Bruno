@@ -28,7 +28,7 @@ export default function PsiaObrozaDetail(props) {
                     <img alt="product" src={item_details[0].fields.zdjecie.fields.file.url} />
                 </div>
                 <div className="product_info_image_info" >
-                    <h2>Nazwa produktu</h2>
+                    <h2>{item_details[0].fields.nazwa}</h2>
                     <div>
                         <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,

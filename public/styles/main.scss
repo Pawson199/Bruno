@@ -67,9 +67,10 @@ body, html{
             padding-left: 5em;
             margin:0;
                 li{
+                    height: 100%;
                     width: auto;
-                    list-style: none;
                     margin: auto;
+                    list-style: none;
                     transition: linear 200ms;
                     &:hover{
                         transform: translateY(-2px);
@@ -79,7 +80,10 @@ body, html{
                             text-decoration: none;
                             color: black;
                             @include font-size( $dfm, $mfm );
+                            @include display-flex(row, center);
                             font-weight: 500;
+                            height: 100%;
+                            width: 100%;
                         }
                 }
         }   

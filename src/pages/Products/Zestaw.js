@@ -21,7 +21,7 @@ export default function Zestaw(props) {
     return (
         item_details.length > 0 ? 
         <div className="product_container">
-            <span className="back_to_offers_button" >
+            <span className="back_to_offers_button">
                 <i></i>
                 <Link><p> Wróć do ofert </p></Link>
             </span>
@@ -29,32 +29,68 @@ export default function Zestaw(props) {
                 <div className="product_gallery" >
                     <img alt="product" src={item_details[0].fields.zdjecie.fields.file.url} />
                 </div>
-                <div>
-                    <h1>{item_details[0].fields.nazwa}</h1>
+                <div className="product_info_image_info" >
+                    <h2>{item_details[0].fields.nazwa}</h2>
                     <div>
-                        <span>Opis</span>
-                        <span>Cena: {item_details[0].fields.cena}</span>
+                        <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                               It has survived not only five centuries,
+                             but also the leap into electronic typesetting, remaining essentially unchanged.</span>
+                        <span><p>499.99</p><small>PLN</small></span>
                     </div>
                 </div>
             </div>
-            <Select
-                categories={["Obroże", "Smycze",
-                "Zestawy", "Adresatki", 
-                "Torby", "Portfele"]}
-                category_name='Rozmiar'
-                 >
-                Wybierz rozmiar 
-            </Select>
-            <Select
-                categories={["Rozowy", "Czerowny",
-                "Bialy", "Niebieski", 
-                "Zielony", "Fiolet"]}
-                category_name='Kolor'
-                 >
-                Wybierz rozmiar
-            </Select>
-            <span>Ilość</span>
-            <Button>Dodaj do koszyka</Button>
+            <label>
+                <h3>
+                    Wybierz rozmiar <u>obroży</u>
+                </h3>
+            </label>
+            <div className="sizes" >
+                <span><b>XS</b> <small>19cm  x 1.5cm</small> </span> 
+                <span> <b>S</b> <small>22cm  x 2cm</small> </span>  
+                <span> <b>M</b> <small>24cm  x 2cm</small> </span>  
+                <span> <b>L</b> <small>24cm  x 3cm</small> </span>  
+                <span> <b>XL</b> <small>28cm  x 3cm</small> </span>  
+                <span> <b>XXL</b> <small>35cm  x 4cm</small> </span>   
+            </div>
+            <label>
+                <h3>
+                    Wybierz rozmiar <u>smyczy</u>
+                </h3>
+            </label>
+            <div className="sizes" >
+                <span> <b>S</b> <small>180cm  x 1cm</small> </span>  
+                <span> <b>M</b> <small>180cm  x 1.5cm</small> </span>  
+                <span> <b>L</b> <small>180cm  x 2cm</small> </span>  
+                <span> <b>XL</b> <small>180cm  x 3cm</small> </span>    
+            </div>
+            <label>
+                <h3>
+                    Wybierz kolor
+                </h3>
+            </label>
+            <div className="colors" >
+                <span className="green" ></span> 
+                <span className="red" ></span>  
+                <span className="yellow" ></span>  
+                <span className="purple" ></span>  
+                <span className="brown" ></span>  
+                <span className="pink" ></span>   
+            </div>
+            <label>
+                <h3>
+                    Ilość
+                </h3>
+            </label>
+            <div className="quantity" >
+                    <p><b>0</b></p>
+                    <i className="ri-add-line ri-xl"></i>
+                    <i className="ri-subtract-line ri-xl"></i>
+            </div>
+            <span className="button_add_to_cart" >
+                <Button><button><p>Do koszyka</p></button></Button>
+            </span>
         </div>
         :
         <div>ni ma</div>
