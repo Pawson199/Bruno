@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import getItemHook from './dataFetcher/itemsGetterHook'
 import { Link } from 'react-router-dom'
-import Select from '../../components/Select'
 import {Button} from '../../components/Button'
 
 export default function SmyczDetail(props) {
