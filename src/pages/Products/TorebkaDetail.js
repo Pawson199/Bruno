@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import getItemHook from './dataFetcher/itemsGetterHook'
+import  getItemHook from './productsFunctions/itemsGetterHook'
 import {Button} from '../../components/Button'
 import { Link } from 'react-router-dom'
 
@@ -45,14 +45,18 @@ export default function TorekbaDetail(props) {
             </label>
             <div className="quantity" >
                     <p><b>0</b></p>
-                    <i className="ri-add-line ri-xl"></i>
-                    <i className="ri-subtract-line ri-xl"></i>
+                    <div>
+                        <i className="ri-add-line ri-xl"></i>
+                        <i className="ri-subtract-line ri-xl"></i>
+                    </div>
             </div>
             <span className="button_add_to_cart" >
                 <Button><button><p>Do koszyka</p></button></Button>
             </span>
         </div>
         :
-        <div>ni ma</div>
+        <span className="product_spinner" >
+            <span ></span>
+        </span>
     )
 }

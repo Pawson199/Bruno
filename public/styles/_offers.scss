@@ -8,8 +8,6 @@
     margin: 0 auto;
     box-sizing: border-box;
     
-    
-
         & .offers{
             display: grid;
             grid-template-columns: repeat( auto-fill, minmax( 14em, 1fr ) );
@@ -19,6 +17,10 @@
             max-width: 100%;
                 & a{
                     text-decoration: none;
+                     &:hover{
+                         transition: 200ms ease-in-out;
+                         transform: translateY(-3px);
+                     }
                 }
                 & div {
                     border: black 2px solid;

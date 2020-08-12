@@ -6,6 +6,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
+    position: relative;
      & .back_to_offers_button{
         @include font-size($dfs, $mfs);
          & a{
@@ -56,11 +57,25 @@
     .quantity{
         width: 9rem;
         border: 1px black solid;
+        padding: 0.6rem 0;
         @include display-flex(row, space-around);
-        padding: 0.6rem;
             & p{
                 height: 100%;
+                width: 35%;
                 margin: 0;
+                @include display-flex(row, space-around);
+                border-right: 1px solid black;
+            }
+            & div{
+                height: 100%;
+                width: 65%;
+                @include display-flex(row, center);
+                & i{
+                    &:hover{cursor: pointer;}
+                }
+                & i:nth-child(1){
+                    margin-right: 0.8rem;
+                }
             }
     }
     .button_add_to_cart{
@@ -88,6 +103,11 @@
         @include display-flex(row, center);
         padding: 0.6rem;
         border: 1px black solid;
+        transition: 150ms linear;
+        &:hover{
+            background-color: rgba(192, 194, 94, 0.432);
+            cursor: pointer;
+            }
          & small{
             margin-left: 0.5rem;
             @include font-size($dfs , $mfxs);
@@ -100,14 +120,48 @@
 
 .colors{
     @include display-flex(row, flex-start);
-        & span{
-            @include display-flex(row, center);
+        & div{
             height: 2rem;
             width: 2rem;
             margin-right: 0.5rem;
             border: 1px black solid;
+            transition: 150ms linear;
+                &:hover{
+                    transform: scale(1.1) rotate(5deg);
+                    cursor: pointer;
+                }
+        }
+        .choosed_color{
+            transform: scale(1.1) rotate(5deg);
+            border: 1px dotted grey;
+        }
+        & input{
+            @include display-flex(row, center);
+            width: 100%;
+            height: 100%;
+            border: 0;
+            margin: 0;
+            opacity: 0;
         }
 }
+
+.product_spinner{
+    @include display-flex( column, center);
+    min-height: calc(100vh - 6em);
+    max-width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    
+        & span {
+                border: 5px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 5px solid $base-color;
+                width: 90px;
+                height: 90px;
+                -webkit-animation: spin 2s linear infinite;
+                animation: spin 2s linear infinite;
+        }
+    }
 
 @media only screen and (max-width: 901px) {
     .product_info_image{
