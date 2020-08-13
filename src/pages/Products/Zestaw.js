@@ -3,10 +3,17 @@ import { useParams } from 'react-router-dom'
 import  getItemHook from './productsFunctions/itemsGetterHook'
 import { Link } from 'react-router-dom'
 import {Button} from '../../components/Button'
+import SetQuantity from './productsComponents/SetQuantity'
+import SetColors from './productsComponents/SetColors'
+import SetSizes from './productsComponents/SetSizes'
 
 export default function Zestaw(props) {
 
     const [item_details, set_item_details] = useState([])
+    const [quantity, setquantity] = useState(0)
+    const [sizesObroza, setSizeObroza] = useState([])
+    const [sizesSmycz, setSizeSmycz] = useState([])
+    const [color, setColor] = useState("")
     const {productName} = useParams()
 
     useEffect(
@@ -15,7 +22,7 @@ export default function Zestaw(props) {
         },
     [productName])
 
-    console.log(item_details)
+    console.log(color,quantity, sizesObroza, sizesSmycz)
 
     return (
         item_details.length > 0 ? 
@@ -45,50 +52,37 @@ export default function Zestaw(props) {
                     Wybierz rozmiar <u>obroży</u>
                 </h3>
             </label>
-            <div className="sizes" >
-                <span><b>XS</b> <small>19cm  x 1.5cm</small> </span> 
-                <span> <b>S</b> <small>22cm  x 2cm</small> </span>  
-                <span> <b>M</b> <small>24cm  x 2cm</small> </span>  
-                <span> <b>L</b> <small>24cm  x 3cm</small> </span>  
-                <span> <b>XL</b> <small>28cm  x 3cm</small> </span>  
-                <span> <b>XXL</b> <small>35cm  x 4cm</small> </span>   
-            </div>
+            <SetSizes 
+                setSize={setSizeObroza}
+                sizes={
+                    [ ["XS", 19, 1.5], ["S", 22, 2], ["M", 24, 2],
+                    ["L", 24, 3], ["XL", 28, 3], ["XXL", 35, 4] ]
+                }
+            />
             <label>
                 <h3>
                     Wybierz rozmiar <u>smyczy</u>
                 </h3>
             </label>
-            <div className="sizes" >
-                <span> <b>S</b> <small>180cm  x 1cm</small> </span>  
-                <span> <b>M</b> <small>180cm  x 1.5cm</small> </span>  
-                <span> <b>L</b> <small>180cm  x 2cm</small> </span>  
-                <span> <b>XL</b> <small>180cm  x 3cm</small> </span>    
-            </div>
+            <SetSizes 
+                setSize={setSizeSmycz}
+                sizes={
+                    [ ["S", 180, 1], ["M", 180, 1.5],
+                    ["L", 180, 2], ["XL", 180, 2.5] ]
+                }
+            />
             <label>
                 <h3>
                     Wybierz kolor
                 </h3>
             </label>
-            <div className="colors" >
-                <span className="green" ></span> 
-                <span className="red" ></span>  
-                <span className="yellow" ></span>  
-                <span className="purple" ></span>  
-                <span className="brown" ></span>  
-                <span className="pink" ></span>   
-            </div>
+            <SetColors setColor={setColor} />
             <label>
                 <h3>
                     Ilość
                 </h3>
             </label>
-            <div className="quantity" >
-                    <p><b>0</b></p>
-                    <div>
-                        <i className="ri-add-line ri-xl"></i>
-                        <i className="ri-subtract-line ri-xl"></i>
-                    </div>
-            </div>
+            <SetQuantity amount={quantity} setamount={setquantity} />
             <span className="button_add_to_cart" >
                 <Button><button><p>Do koszyka</p></button></Button>
             </span>

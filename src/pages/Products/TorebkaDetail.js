@@ -3,9 +3,11 @@ import { useParams } from 'react-router-dom'
 import  getItemHook from './productsFunctions/itemsGetterHook'
 import {Button} from '../../components/Button'
 import { Link } from 'react-router-dom'
+import SetQuantity from './productsComponents/SetQuantity'
 
 export default function TorekbaDetail(props) {
     const {productName} = useParams()
+    const [quantity, setquantity] = useState(0)
     const [item_details, set_item_details] = useState([])
     useEffect(
         () => {
@@ -13,14 +15,14 @@ export default function TorekbaDetail(props) {
         },
     [productName])
 
-        console.log(item_details)
+        console.log(quantity)
 
     return (
         item_details.length > 0 ? 
         <div className="product_container">
             <span className="back_to_offers_button">
                 <i></i>
-                <Link><p> Wróć do ofert </p></Link>
+                <Link ><p> Wróć do ofert </p></Link>
             </span>
             <div className="product_info_image" >
                 <div className="product_gallery" >
@@ -43,13 +45,7 @@ export default function TorekbaDetail(props) {
                     Ilość
                 </h3>
             </label>
-            <div className="quantity" >
-                    <p><b>0</b></p>
-                    <div>
-                        <i className="ri-add-line ri-xl"></i>
-                        <i className="ri-subtract-line ri-xl"></i>
-                    </div>
-            </div>
+            <SetQuantity amount={quantity} setamount={setquantity} />
             <span className="button_add_to_cart" >
                 <Button><button><p>Do koszyka</p></button></Button>
             </span>

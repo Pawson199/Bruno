@@ -3,9 +3,13 @@ import { useParams } from 'react-router-dom'
 import  getItemHook from './productsFunctions/itemsGetterHook'
 import { Link } from 'react-router-dom'
 import {Button} from '../../components/Button'
+import SetQuantity from './productsComponents/SetQuantity'
+import SetColors from './productsComponents/SetColors'
 
 export default function Adresatka(props) {
     const {productName} = useParams()
+    const [quantity, setquantity] = useState(0)
+    const [color, setColor] = useState("")
     const [item_details, set_item_details] = useState([])
     useEffect(
         () => {
@@ -13,7 +17,7 @@ export default function Adresatka(props) {
         },
     [productName])
 
-        console.log(item_details)
+    console.log(color,quantity)
 
     return (
         item_details.length > 0 ? 
@@ -51,26 +55,13 @@ export default function Adresatka(props) {
                     Wybierz kolor
                 </h3>
             </label>
-            <div className="colors" >
-                <span className="green" ></span> 
-                <span className="red" ></span>  
-                <span className="yellow" ></span>  
-                <span className="purple" ></span>  
-                <span className="brown" ></span>  
-                <span className="pink" ></span>   
-            </div>
+            <SetColors setColor={setColor} />
             <label>
                 <h3>
                     Ilość
                 </h3>
             </label>
-            <div className="quantity" >
-                    <p><b>0</b></p>
-                    <div>
-                        <i className="ri-add-line ri-xl"></i>
-                        <i className="ri-subtract-line ri-xl"></i>
-                    </div>
-            </div>
+            <SetQuantity amount={quantity} setamount={setquantity} />
             <span className="button_add_to_cart" >
                 <Button><button><p>Do koszyka</p></button></Button>
             </span>

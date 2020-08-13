@@ -8,7 +8,7 @@ export default function SetColors(props) {
     [...refik.current.children].forEach( el => 
         el.children[0].checked 
         ? 
-        ( props.setcolor(el.children[0].value), el.classList.add('choosed_color') ) 
+        ( props.setColor(el.children[0].value), el.classList.add('choosed_color') ) 
         : 
         el.classList.remove('choosed_color')) 
     }

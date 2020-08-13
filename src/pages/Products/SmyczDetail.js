@@ -3,10 +3,16 @@ import { useParams } from 'react-router-dom'
 import  getItemHook from './productsFunctions/itemsGetterHook'
 import { Link } from 'react-router-dom'
 import {Button} from '../../components/Button'
+import SetQuantity from './productsComponents/SetQuantity'
+import SetColors from './productsComponents/SetColors'
+import SetSizes from './productsComponents/SetSizes'
 
 export default function SmyczDetail(props) {
 
     const {productName} = useParams()
+    const [quantity, setquantity] = useState(0)
+    const [sizes, setSize] = useState([])
+    const [color, setColor] = useState("")
     const [item_details, set_item_details] = useState([])
     useEffect(
         () => {
@@ -14,7 +20,7 @@ export default function SmyczDetail(props) {
         },
     [productName])
 
-        console.log(item_details)
+    console.log(color,quantity, sizes)
 
     return (
         item_details.length > 0 ? 
@@ -44,37 +50,25 @@ export default function SmyczDetail(props) {
                     Wybierz rozmiar
                 </h3>
             </label>
-            <div className="sizes" >
-                <span> <b>S</b> <small>180cm  x 1cm</small> </span>  
-                <span> <b>M</b> <small>180cm  x 1.5cm</small> </span>  
-                <span> <b>L</b> <small>180cm  x 2cm</small> </span>  
-                <span> <b>XL</b> <small>180cm  x 3cm</small> </span>   
-            </div>
+            <SetSizes 
+                setSize={setSize}
+                sizes={
+                    [ ["S", 180, 1], ["M", 180, 1.5],
+                    ["L", 180, 2], ["XL", 180, 2.5] ]
+                }
+            />
             <label>
                 <h3>
                     Wybierz kolor
                 </h3>
             </label>
-            <div className="colors" >
-                <span className="green" ></span> 
-                <span className="red" ></span>  
-                <span className="yellow" ></span>  
-                <span className="purple" ></span>  
-                <span className="brown" ></span>  
-                <span className="pink" ></span>   
-            </div>
+            <SetColors setColor={setColor} />
             <label>
                 <h3>
                     Ilość
                 </h3>
             </label>
-            <div className="quantity" >
-                    <p><b>0</b></p>
-                    <div>
-                        <i className="ri-add-line ri-xl"></i>
-                        <i className="ri-subtract-line ri-xl"></i>
-                    </div>
-            </div>
+            <SetQuantity amount={quantity} setamount={setquantity} />
             <span className="button_add_to_cart" >
                 <Button><button><p>Do koszyka</p></button></Button>
             </span>

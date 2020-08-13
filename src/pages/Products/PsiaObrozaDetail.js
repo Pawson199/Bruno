@@ -62,7 +62,7 @@ export default function PsiaObrozaDetail(props) {
                     Wybierz kolor
                 </h3>
             </label>
-            <SetColors setcolor={setColor} />
+            <SetColors setColor={setColor} />
             <label>
                 <h3>
                     Ilość
