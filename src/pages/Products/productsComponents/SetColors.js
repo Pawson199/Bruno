@@ -4,12 +4,17 @@ export default function SetColors(props) {
 
     const refik = useRef()
 
-    const show = () => {
-    [...refik.current.children].forEach( el => el.children[0].checked ? ( props.setcolor(el.children[0].value), el.classList.add('choosed_color') ) : el.classList.remove('choosed_color')) 
+    const displayChecked = () => {
+    [...refik.current.children].forEach( el => 
+        el.children[0].checked 
+        ? 
+        ( props.setcolor(el.children[0].value), el.classList.add('choosed_color') ) 
+        : 
+        el.classList.remove('choosed_color')) 
     }
 
     return (
-        <div className="colors" onClick={ () => show() }  ref={refik} >
+        <div className="colors" onClick={ () => displayChecked() }  ref={refik} >
             <div className="green"> 
                 <input name="color" value="green" type="radio" ></input>
             </div>

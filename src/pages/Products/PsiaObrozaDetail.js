@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom'
 import {Button} from '../../components/Button'
 import SetQuantity from './productsComponents/SetQuantity'
 import SetColors from './productsComponents/SetColors'
+import SetSizes from './productsComponents/SetSizes'
 
 export default function PsiaObrozaDetail(props) {
 
     const [item_details, set_item_details] = useState([])
     const [quantity, setquantity] = useState(0)
+    const [sizes, setSize] = useState([])
     const [color, setColor] = useState("")
     const {productName} = useParams()
     useEffect(
@@ -18,7 +20,7 @@ export default function PsiaObrozaDetail(props) {
         },
     [productName])
 
-         console.log(color,quantity)
+         console.log(color,quantity, sizes)
 
     return (
         item_details.length > 0 ? 
@@ -48,14 +50,13 @@ export default function PsiaObrozaDetail(props) {
                     Wybierz rozmiar
                 </h3>
             </label>
-            <div className="sizes" >
-                <span><b>XS</b> <small>19cm  x 1.5cm</small> </span> 
-                <span> <b>S</b> <small>22cm  x 2cm</small> </span>  
-                <span> <b>M</b> <small>24cm  x 2cm</small> </span>  
-                <span> <b>L</b> <small>24cm  x 3cm</small> </span>  
-                <span> <b>XL</b> <small>28cm  x 3cm</small> </span>  
-                <span> <b>XXL</b> <small>35cm  x 4cm</small> </span>   
-            </div>
+            <SetSizes 
+                setSize={setSize}
+                sizes={
+                    [ ["XS", 19, 1.5], ["S", 22, 2], ["M", 24, 2],
+                    ["L", 24, 3], ["XL", 28, 3], ["XXL", 35, 4] ]
+                }
+            />
             <label>
                 <h3>
                     Wybierz kolor
