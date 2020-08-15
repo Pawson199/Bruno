@@ -6,8 +6,10 @@ import {Button} from '../../components/Button'
 import SetQuantity from './productsComponents/SetQuantity'
 import SetColors from './productsComponents/SetColors'
 import SetSizes from './productsComponents/SetSizes'
+import {product_to_cart} from '../../redux'
+import {connect} from "react-redux"
 
-export default function Zestaw(props) {
+function Zestaw(props) {
 
     const [item_details, set_item_details] = useState([])
     const [quantity, setquantity] = useState(0)
@@ -84,7 +86,21 @@ export default function Zestaw(props) {
             </label>
             <SetQuantity amount={quantity} setamount={setquantity} />
             <span className="button_add_to_cart" >
-                <Button><button><p>Do koszyka</p></button></Button>
+                <Button>
+                        <button 
+                        onClick={ () => props.product_to_cart({
+                            name:item_details[0].fields.nazwa,
+                            image: item_details[0].fields.zdjecie.fields.file.url,
+                            sizes:{w: sizesObroza[1], l: sizesObroza[0]},
+                            sizes2:{w: sizesSmycz[1], l: sizesSmycz[0]},
+                            quantity: quantity,
+                            price: +item_details[0].fields.cena,
+                            color: color,
+                            identifier: Date.now()
+                        })}>
+                            <p>Do koszyka</p>
+                        </button>
+                </Button>
             </span>
         </div>
         :
@@ -93,3 +109,5 @@ export default function Zestaw(props) {
         </span>
     )
 }
+
+export default connect(() => ({}), {product_to_cart})(Zestaw)

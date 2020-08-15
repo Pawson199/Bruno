@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 import {Button} from '../../components/Button'
 import SetQuantity from './productsComponents/SetQuantity'
 import SetColors from './productsComponents/SetColors'
+import {product_to_cart} from '../../redux'
+import {connect} from "react-redux"
 
-export default function Adresatka(props) {
+function Adresatka(props) {
     const {productName} = useParams()
     const [quantity, setquantity] = useState(0)
     const [color, setColor] = useState("")
@@ -63,7 +65,19 @@ export default function Adresatka(props) {
             </label>
             <SetQuantity amount={quantity} setamount={setquantity} />
             <span className="button_add_to_cart" >
-                <Button><button><p>Do koszyka</p></button></Button>
+                <Button>
+                        <button 
+                        onClick={ () => props.product_to_cart({
+                            name:item_details[0].fields.nazwa,
+                            image: item_details[0].fields.zdjecie.fields.file.url,
+                            quantity: quantity,
+                            price: +item_details[0].fields.cena,
+                            color: color,
+                            identifier: Date.now()
+                        })}>
+                            <p>Do koszyka</p>
+                        </button>
+                </Button>
             </span>
         </div>
         :
@@ -72,3 +86,5 @@ export default function Adresatka(props) {
         </span>
     )
 }
+
+export default connect(() => ({}), {product_to_cart})(Adresatka)

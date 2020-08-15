@@ -6,8 +6,10 @@ import {Button} from '../../components/Button'
 import SetQuantity from './productsComponents/SetQuantity'
 import SetColors from './productsComponents/SetColors'
 import SetSizes from './productsComponents/SetSizes'
+import {product_to_cart} from '../../redux'
+import {connect} from "react-redux"
 
-export default function PsiaObrozaDetail(props) {
+function PsiaObrozaDetail(props) {
 
     const [item_details, set_item_details] = useState([])
     const [quantity, setquantity] = useState(0)
@@ -20,7 +22,7 @@ export default function PsiaObrozaDetail(props) {
         },
     [productName])
 
-         console.log(color,quantity, sizes)
+         console.log(item_details)
 
     return (
         item_details.length > 0 ? 
@@ -41,7 +43,7 @@ export default function PsiaObrozaDetail(props) {
                               when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                                It has survived not only five centuries,
                              but also the leap into electronic typesetting, remaining essentially unchanged.</span>
-                        <span><p>499.99</p><small>PLN</small></span>
+                        <span><p>{item_details[0].fields.cena}</p><small>PLN</small></span>
                     </div>
                 </div>
             </div>
@@ -70,7 +72,20 @@ export default function PsiaObrozaDetail(props) {
             </label>
             <SetQuantity amount={quantity} setamount={setquantity} />
             <span className="button_add_to_cart" >
-                <Button><button><p>Do koszyka</p></button></Button>
+                <Button>
+                    <button 
+                    onClick={ () => props.product_to_cart({
+                        name:item_details[0].fields.nazwa,
+                        image: item_details[0].fields.zdjecie.fields.file.url,
+                        sizes:{w: sizes[1], l: sizes[0]},
+                        quantity: quantity,
+                        price: +item_details[0].fields.cena,
+                        color: color,
+                        identifier: Date.now()
+                    })}>
+                        <p>Do koszyka</p>
+                    </button>
+                </Button>
             </span>
         </div>
         :
@@ -79,3 +94,5 @@ export default function PsiaObrozaDetail(props) {
         </span>
     )
 }
+
+export default connect(() => ({}), {product_to_cart})(PsiaObrozaDetail)

@@ -34,6 +34,11 @@ export const change_category = (category) => {
     }
 }
 
+export const product_to_cart = (product) => ({
+    type: "PRODUCT_TO_CART",
+    payload: product
+})
+
 export const count_load = () => ({
     type: "COUNT_LOAD"
 })
@@ -61,38 +66,7 @@ const initialState = {
     category: "Obroże",
     center_class: "center",
     deliviery: 0,
-    cart: [
-        {name:"keweqk1",
-        image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
-        sizes:{w: "20cm", l: "20cm"},
-        quantity: 2,
-        price: 21
-        },
-        {name:"kewfdeqk1",
-        image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
-        sizes:{w: "20cm", l: "20cm"},
-        quantity: 2,
-        price: 21
-        },
-        {name:"kefdsfweqk1",
-        image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
-        sizes:{w: "20cm", l: "20cm"},
-        quantity: 2,
-        price: 21
-        },
-        {name:"kedk1",
-        image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
-        sizes:{w: "20cm", l: "20cm"},
-        quantity: 2,
-        price: 22
-        },
-        {name:"kekdsa1",
-        image: "//images.ctfassets.net/f7ius08ge64j/6mKC3fQTH88iKM1N43tPPl/cf05a640ce7737dcb6b536dc5653d7dd/jadzka.jpg",
-        sizes:{w: "20cm", l: "20cm"},
-        quantity: 2,
-        price: 12
-        }
-    ]
+    cart: []
  }
 
 const reducer = (state = initialState, action) => {
@@ -102,21 +76,27 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 products: action.payload,
                 center_class: "no-center"
-            }
+        }
 
-            case "REMOVE_THING": {          
-                const newCart = state.cart.filter( el => el.name !== action.payload )  
-              return{
-                  ...state,
-                  cart: newCart
-              }
+        case "PRODUCT_TO_CART":
+            return {
+                ...state,
+                cart: [...state.cart, action.payload]
+        }
+
+        case "REMOVE_THING": {          
+                const newCart = state.cart.filter( el => el.identifier !== action.payload )  
+            return{
+                ...state,
+                cart: newCart
             }
+        }
 
         case "COUNT_LOAD":
             return {
                 ...state,
                 isloaded: state.isloaded + 1
-            }
+        }
 
         case "SET_DELIVIERY":
             return {

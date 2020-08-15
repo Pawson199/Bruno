@@ -4,8 +4,10 @@ import  getItemHook from './productsFunctions/itemsGetterHook'
 import {Button} from '../../components/Button'
 import { Link } from 'react-router-dom'
 import SetQuantity from './productsComponents/SetQuantity'
+import {product_to_cart} from '../../redux'
+import {connect} from "react-redux"
 
-export default function TorekbaDetail(props) {
+function TorekbaDetail(props) {
     const {productName} = useParams()
     const [quantity, setquantity] = useState(0)
     const [item_details, set_item_details] = useState([])
@@ -47,7 +49,18 @@ export default function TorekbaDetail(props) {
             </label>
             <SetQuantity amount={quantity} setamount={setquantity} />
             <span className="button_add_to_cart" >
-                <Button><button><p>Do koszyka</p></button></Button>
+                <Button>
+                        <button 
+                        onClick={ () => props.product_to_cart({
+                            name:item_details[0].fields.nazwa,
+                            image: item_details[0].fields.zdjecie.fields.file.url,
+                            quantity: quantity,
+                            price: +item_details[0].fields.cena,
+                            identifier: Date.now()
+                        })}>
+                            <p>Do koszyka</p>
+                        </button>
+                </Button>
             </span>
         </div>
         :
@@ -56,3 +69,5 @@ export default function TorekbaDetail(props) {
         </span>
     )
 }
+
+export default connect(() => ({}), {product_to_cart})(TorekbaDetail)

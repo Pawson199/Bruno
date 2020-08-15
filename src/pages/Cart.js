@@ -44,11 +44,18 @@ const products = props.products_in_cart.map( el =>
         <div className="product_image" >
             <img alt="offer_name" src={el.image} ></img>
             <div>
-             <p>Ilość:  <small>{el.quantity}</small></p>
-             <p>Rozmiar: <small>{el.sizes.w} - {el.sizes.l}</small></p>
+            <p>Ilość:  <small>{el.quantity}</small></p>
+            {
+            el.sizes == undefined ? 
+            null : <p>Rozmiar: <small>{el.sizes.w}cm - {el.sizes.l}cm</small></p>
+            }
+            {
+            el.sizes2 == undefined ? 
+            null : <p> <small>{el.sizes2.w}cm - {el.sizes2.l}cm</small></p>
+            }
             </div>
         </div>
-        <div className="delete_product"  ><i onClick={ () => props.removeFavoriteThing(el.name) } className="ri-close-fill ri-2x"></i>Usuń</div>
+        <div className="delete_product"  ><i onClick={ () => props.removeFavoriteThing(el.identifier) } className="ri-close-fill ri-2x"></i>Usuń</div>
     </span> 
 )
 

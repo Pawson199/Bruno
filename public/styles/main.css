@@ -1908,7 +1908,6 @@ body, html {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  padding-bottom: 1em;
 }
 
 .products_container span .product_image img {
@@ -2112,7 +2111,7 @@ body, html {
   background-color: rgba(255, 255, 255, 0);
 }
 
-@media only screen and (max-width: 901px) {
+@media only screen and (max-width: 501px) {
   .cart_container .products_and_summary {
     margin-bottom: 3rem;
     display: -webkit-box;
@@ -2135,11 +2134,95 @@ body, html {
   .cart_container .products_and_summary .products_container .products_description {
     padding: 1em;
   }
+  .cart_container .products_and_summary .products_container .product_image {
+    padding: 1em 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   .cart_container .products_and_summary .products_container .product_image img {
-    padding: 0 0 0 1em;
+    padding: 0;
   }
   .cart_container .products_and_summary .products_container .delete_product {
     padding: 0 1em 1em 1em;
+  }
+  .cart_container .products_and_summary .summary {
+    width: 100%;
+    margin-top: 3em;
+    padding-bottom: 2em;
+  }
+  .cart_container .products_and_summary .summary h2 {
+    margin-top: 2rem;
+  }
+  .cart_container h1 {
+    margin: 3rem 0 3rem 0;
+  }
+  .cart_container.empty img {
+    margin-bottom: 3em;
+    max-width: 70%;
+  }
+  .cart_container.empty div {
+    margin-bottom: 3em;
+  }
+  .product_image img {
+    max-width: 9em;
+  }
+}
+
+@media only screen and (min-width: 501px) {
+  .cart_container .products_and_summary {
+    margin-bottom: 3rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cart_container .products_and_summary .products_container {
+    width: 100%;
+  }
+  .cart_container .products_and_summary .products_container .products_description {
+    padding: 1em 2em;
+  }
+  .cart_container .products_and_summary .products_container .product_image {
+    padding: 0 0 1em 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .cart_container .products_and_summary .products_container .product_image img {
+    padding: 0 0 0 2em;
+  }
+  .cart_container .products_and_summary .products_container .delete_product {
+    padding: 0 1em 1em 2em;
   }
   .cart_container .products_and_summary .summary {
     width: 100%;
@@ -2187,22 +2270,17 @@ body, html {
   .cart_container .products_and_summary .products_container {
     width: 50%;
   }
-  .cart_container .products_and_summary .products_container .products_description {
-    padding: 1em 3em;
-  }
   .cart_container .products_and_summary .summary {
     width: 50%;
     margin-left: 3em;
     padding-bottom: 3em;
+    margin-top: 0;
   }
   .cart_container .products_and_summary .summary h2 {
     margin-top: 3rem;
   }
   .cart_container .products_and_summary .product_image img {
     padding: 0 0 0 3em;
-  }
-  .cart_container .products_and_summary .delete_product {
-    padding: 0 1em 1em 3em;
   }
   .cart_container h1 {
     margin: 6rem 0 3rem 0;

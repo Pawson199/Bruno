@@ -12,8 +12,8 @@ export default function SetSizes(props) {
             ? 
             ( 
                 props.setSize([
-                    parseInt(child.getAttribute('width')),
-                    parseInt(child.getAttribute('length'))
+                    child.getAttribute('width'),
+                    child.getAttribute('length')
                 ]),
                 el.classList.add('choosed_size')
             ) 
