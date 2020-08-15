@@ -46,11 +46,11 @@ const products = props.products_in_cart.map( el =>
             <div>
             <p>Ilość:  <small>{el.quantity}</small></p>
             {
-            el.sizes == undefined ? 
+            el.sizes === "null" ? 
             null : <p>Rozmiar: <small>{el.sizes.w}cm - {el.sizes.l}cm</small></p>
             }
             {
-            el.sizes2 == undefined ? 
+            el.sizes2 === "null" ? 
             null : <p> <small>{el.sizes2.w}cm - {el.sizes2.l}cm</small></p>
             }
             </div>

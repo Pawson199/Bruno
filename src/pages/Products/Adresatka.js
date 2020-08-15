@@ -71,6 +71,8 @@ function Adresatka(props) {
                             name:item_details[0].fields.nazwa,
                             image: item_details[0].fields.zdjecie.fields.file.url,
                             quantity: quantity,
+                            sizes: "null",
+                            sizes2: "null",
                             price: +item_details[0].fields.cena,
                             color: color,
                             identifier: Date.now()

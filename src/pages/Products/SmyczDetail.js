@@ -78,6 +78,7 @@ function SmyczDetail(props) {
                             name:item_details[0].fields.nazwa,
                             image: item_details[0].fields.zdjecie.fields.file.url,
                             sizes:{w: sizes[1], l: sizes[0]},
+                            sizes2: "null",
                             quantity: quantity,
                             price: +item_details[0].fields.cena,
                             color: color,
