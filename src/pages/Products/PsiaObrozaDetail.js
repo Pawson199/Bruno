@@ -8,6 +8,7 @@ import SetColors from './productsComponents/SetColors'
 import SetSizes from './productsComponents/SetSizes'
 import {product_to_cart} from '../../redux'
 import {connect} from "react-redux"
+import countPrice from './productsFunctions/countPrice'
 
 function PsiaObrozaDetail(props) {
 
@@ -43,7 +44,7 @@ function PsiaObrozaDetail(props) {
                               when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                                It has survived not only five centuries,
                              but also the leap into electronic typesetting, remaining essentially unchanged.</span>
-                        <span><p>{item_details[0].fields.cena}</p><small>PLN</small></span>
+                        <span><p>{countPrice(item_details[0].fields.cena, sizes[0], "empty")}</p><small>PLN</small></span>
                     </div>
                 </div>
             </div>
@@ -55,8 +56,8 @@ function PsiaObrozaDetail(props) {
             <SetSizes 
                 setSize={setSize}
                 sizes={
-                    [ ["XS", 19, 1.5], ["S", 22, 2], ["M", 24, 2],
-                    ["L", 24, 3], ["XL", 28, 3], ["XXL", 35, 4] ]
+                    [ ["XS", '18-27', 1.5], ["S", '25-35', 2], ["M", '33-41', 2],
+                    ["L", '38-48', 3], ["XL", '46-58', 3], ["XXL", '56-71', 4] ]
                 }
             />
             <label>
@@ -80,7 +81,7 @@ function PsiaObrozaDetail(props) {
                         sizes:{w: sizes[1], l: sizes[0]},
                         sizes2: "null",
                         quantity: quantity,
-                        price: +item_details[0].fields.cena,
+                        price: countPrice(item_details[0].fields.cena, sizes[0], "empty"),
                         color: color,
                         identifier: Date.now()
                     })}>

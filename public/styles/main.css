@@ -2149,9 +2149,12 @@ body, html {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   .cart_container .products_and_summary .products_container .product_image img {
-    padding: 0;
+    padding: 0 0 0 1em;
   }
   .cart_container .products_and_summary .products_container .delete_product {
     padding: 0 1em 1em 1em;
@@ -2850,8 +2853,8 @@ body, html {
   display: grid;
   -ms-grid-rows: auto;
       grid-template-rows: auto;
-  -ms-grid-columns: (minmax(10rem, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  -ms-grid-columns: (minmax(14rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   grid-gap: 1rem;
 }
 

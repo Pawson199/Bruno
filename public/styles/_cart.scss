@@ -160,8 +160,9 @@
                         & .product_image{
                             padding: 1em 0;
                             @include display-flex(column, center);
+                            align-items: flex-start;
                             & img{
-                                padding: 0 ;
+                                padding: 0 0 0 1em ;
                             }
                         }
                         & .delete_product{

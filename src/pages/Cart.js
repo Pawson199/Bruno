@@ -47,11 +47,15 @@ const products = props.products_in_cart.map( el =>
             <p>Ilość:  <small>{el.quantity}</small></p>
             {
             el.sizes === "null" ? 
-            null : <p>Rozmiar: <small>{el.sizes.w}cm - {el.sizes.l}cm</small></p>
+            null : <p>Rozmiar { el.sizes2 === "null" ? null : "obroży" } : <small>{el.sizes.l}cm - {el.sizes.w}cm</small></p>
             }
             {
             el.sizes2 === "null" ? 
-            null : <p> <small>{el.sizes2.w}cm - {el.sizes2.l}cm</small></p>
+            null : <p>Rozmiar smyczy: <small>{el.sizes2.l}cm - {el.sizes2.w}cm</small></p>
+            }
+            {
+            el.color === "null" ? 
+            null : <p>Kolor: <small>{el.color}</small></p>
             }
             </div>
         </div>

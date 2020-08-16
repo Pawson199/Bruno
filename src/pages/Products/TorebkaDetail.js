@@ -57,6 +57,7 @@ function TorekbaDetail(props) {
                             quantity: quantity,
                             sizes: "null",
                             sizes2: "null",
+                            color: "null",
                             price: +item_details[0].fields.cena,
                             identifier: Date.now()
                         })}>

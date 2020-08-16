@@ -8,6 +8,7 @@ import SetColors from './productsComponents/SetColors'
 import SetSizes from './productsComponents/SetSizes'
 import {product_to_cart} from '../../redux'
 import {connect} from "react-redux"
+import countPrice from './productsFunctions/countPrice'
 
 function Zestaw(props) {
 
@@ -45,7 +46,7 @@ function Zestaw(props) {
                               when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                                It has survived not only five centuries,
                              but also the leap into electronic typesetting, remaining essentially unchanged.</span>
-                        <span><p>499.99</p><small>PLN</small></span>
+                        <span><p>{countPrice(item_details[0].fields.cena, sizesObroza[0], +sizesSmycz[1])}</p><small>PLN</small></span>
                     </div>
                 </div>
             </div>
@@ -57,8 +58,8 @@ function Zestaw(props) {
             <SetSizes 
                 setSize={setSizeObroza}
                 sizes={
-                    [ ["XS", 19, 1.5], ["S", 22, 2], ["M", 24, 2],
-                    ["L", 24, 3], ["XL", 28, 3], ["XXL", 35, 4] ]
+                    [ ["XS", '18-27', 1.5], ["S", '25-35', 2], ["M", '33-41', 2],
+                    ["L", '38-48', 3], ["XL", '46-58', 3], ["XXL", '56-71', 4] ]
                 }
             />
             <label>
@@ -70,7 +71,7 @@ function Zestaw(props) {
                 setSize={setSizeSmycz}
                 sizes={
                     [ ["S", 180, 1], ["M", 180, 1.5],
-                    ["L", 180, 2], ["XL", 180, 2.5] ]
+                    ["L", 180, 2], ["XL", 180, 3] ]
                 }
             />
             <label>
@@ -94,7 +95,7 @@ function Zestaw(props) {
                             sizes:{w: sizesObroza[1], l: sizesObroza[0]},
                             sizes2:{w: sizesSmycz[1], l: sizesSmycz[0]},
                             quantity: quantity,
-                            price: +item_details[0].fields.cena,
+                            price: countPrice(item_details[0].fields.cena, sizesObroza[0], +sizesSmycz[1]),
                             color: color,
                             identifier: Date.now()
                         })}>

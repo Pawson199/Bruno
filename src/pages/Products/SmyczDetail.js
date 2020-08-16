@@ -8,6 +8,7 @@ import SetColors from './productsComponents/SetColors'
 import SetSizes from './productsComponents/SetSizes'
 import {product_to_cart} from '../../redux'
 import {connect} from "react-redux"
+import countPrice from './productsFunctions/countPrice'
 
 function SmyczDetail(props) {
 
@@ -43,7 +44,7 @@ function SmyczDetail(props) {
                               when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                                It has survived not only five centuries,
                              but also the leap into electronic typesetting, remaining essentially unchanged.</span>
-                        <span><p>499.99</p><small>PLN</small></span>
+                        <span><p>{countPrice(item_details[0].fields.cena, 'empty', +sizes[1])}</p><small>PLN</small></span>
                     </div>
                 </div>
             </div>
@@ -56,7 +57,7 @@ function SmyczDetail(props) {
                 setSize={setSize}
                 sizes={
                     [ ["S", 180, 1], ["M", 180, 1.5],
-                    ["L", 180, 2], ["XL", 180, 2.5] ]
+                    ["L", 180, 2], ["XL", 180, 3] ]
                 }
             />
             <label>
@@ -80,7 +81,7 @@ function SmyczDetail(props) {
                             sizes:{w: sizes[1], l: sizes[0]},
                             sizes2: "null",
                             quantity: quantity,
-                            price: +item_details[0].fields.cena,
+                            price: countPrice(item_details[0].fields.cena, sizes[0], "empty"),
                             color: color,
                             identifier: Date.now()
                         })}>

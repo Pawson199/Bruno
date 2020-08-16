@@ -97,7 +97,7 @@
 .sizes{
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: repeat(auto-fill, minmax( 10rem, 1fr ));
+    grid-template-columns: repeat(auto-fill, minmax( 14rem, 1fr ));
     grid-gap: 1rem;
     & span{
         @include display-flex(row, center);
