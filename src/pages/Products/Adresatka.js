@@ -12,12 +12,17 @@ function Adresatka(props) {
     const {productName} = useParams()
     const [quantity, setquantity] = useState(0)
     const [color, setColor] = useState("")
+    const [grawer, setgrawer] = useState("")
     const [item_details, set_item_details] = useState([])
     useEffect(
         () => {
             getItemHook("Adresatki", productName, set_item_details) 
         },
     [productName])
+
+    const createGrawerValue = (e) => {
+        setgrawer( e.target.value )
+    }
 
     console.log(color,quantity)
 
@@ -50,7 +55,7 @@ function Adresatka(props) {
                 </h3>
             </label>
             <div className="adresatka_content" >
-                <textarea></textarea>
+                <textarea type="text" name="grawer" value={grawer} onChange={ createGrawerValue } ></textarea>
             </div>
             <label>
                 <h3>
@@ -67,16 +72,25 @@ function Adresatka(props) {
             <span className="button_add_to_cart" >
                 <Button>
                         <button 
-                        onClick={ () => props.product_to_cart({
-                            name:item_details[0].fields.nazwa,
-                            image: item_details[0].fields.zdjecie.fields.file.url,
-                            quantity: quantity,
-                            sizes: "null",
-                            sizes2: "null",
-                            price: +item_details[0].fields.cena,
-                            color: color,
-                            identifier: Date.now()
-                        })}>
+                        onClick={ () => {
+                            if( quantity === 0 || color === "" || grawer === "" ){
+                                alert('Zaznacz lub wypełnij wszystkie pola')
+                            }
+                            else{
+                                props.product_to_cart({
+                                    name:item_details[0].fields.nazwa,
+                                    image: item_details[0].fields.zdjecie.fields.file.url,
+                                    quantity: quantity,
+                                    sizes: "null",
+                                    sizes2: "null",
+                                    price: +item_details[0].fields.cena,
+                                    color: color,
+                                    grawer: grawer,
+                                    identifier: Date.now()}
+                                )}
+                                alert('Dodałeś produkt!')
+                            }
+                            }>
                             <p>Do koszyka</p>
                         </button>
                 </Button>

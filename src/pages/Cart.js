@@ -9,6 +9,8 @@ import {Link} from 'react-router-dom'
 
 function Cart(props) {
 
+    
+
 const deliviery_inpost = useRef()
 const deliviery_dpd = useRef()
 
@@ -36,7 +38,7 @@ const whichDeliviery = () => {
 }
 
 const products = props.products_in_cart.map( el => 
-    <span key={el.name} >
+    <span key={ Math.random() * Date.now()} >
         <div className="products_description" >
             <h2>{el.name}</h2>
             <p>Cena: <small>{el.price}</small></p>

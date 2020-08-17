@@ -66,8 +66,8 @@ const initialState = {
     category: "Obroże",
     center_class: "center",
     deliviery: 0,
-    cart: []
- }
+    cart: JSON.parse(localStorage.getItem('products')) === null ? [] : JSON.parse(localStorage.getItem('products'))
+}
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -76,16 +76,21 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 products: action.payload,
                 center_class: "no-center"
-        }
+            }
 
-        case "PRODUCT_TO_CART":
+        case "PRODUCT_TO_CART":{
+
+            localStorage.setItem( "products" , JSON.stringify([...state.cart, action.payload]) )
+
             return {
                 ...state,
-                cart: [...state.cart, action.payload]
+                cart:  JSON.parse(localStorage.getItem('products'))
+            }
         }
 
         case "REMOVE_THING": {          
-                const newCart = state.cart.filter( el => el.identifier !== action.payload )  
+                const newCart = state.cart.filter( el => el.identifier !== action.payload )
+                localStorage.setItem( "products" , JSON.stringify(newCart) )  
             return{
                 ...state,
                 cart: newCart
@@ -96,7 +101,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isloaded: state.isloaded + 1
-        }
+            }
 
         case "SET_DELIVIERY":
             return {
@@ -109,6 +114,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 category: action.payload
             }
+
         default:
             return state
     }

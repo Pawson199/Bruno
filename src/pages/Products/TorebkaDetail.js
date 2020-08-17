@@ -51,16 +51,24 @@ function TorekbaDetail(props) {
             <span className="button_add_to_cart" >
                 <Button>
                         <button 
-                        onClick={ () => props.product_to_cart({
-                            name:item_details[0].fields.nazwa,
-                            image: item_details[0].fields.zdjecie.fields.file.url,
-                            quantity: quantity,
-                            sizes: "null",
-                            sizes2: "null",
-                            color: "null",
-                            price: +item_details[0].fields.cena,
-                            identifier: Date.now()
-                        })}>
+                        onClick={ () => {
+                            if( quantity === 0 ){
+                                alert('Zaznacz lub wypełnij wszystkie pola')
+                            }
+                            else{
+                                props.product_to_cart({
+                                    name:item_details[0].fields.nazwa,
+                                    image: item_details[0].fields.zdjecie.fields.file.url,
+                                    quantity: quantity,
+                                    sizes: "null",
+                                    sizes2: "null",
+                                    color: "null",
+                                    price: +item_details[0].fields.cena,
+                                    identifier: Date.now()
+                                })
+                                alert('Dodałeś produkt!')
+                            }
+                        }}>
                             <p>Do koszyka</p>
                         </button>
                 </Button>

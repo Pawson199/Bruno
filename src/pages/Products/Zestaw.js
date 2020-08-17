@@ -17,6 +17,7 @@ function Zestaw(props) {
     const [sizesObroza, setSizeObroza] = useState([])
     const [sizesSmycz, setSizeSmycz] = useState([])
     const [color, setColor] = useState("")
+    const [grawer, setgrawer] = useState("")
     const {productName} = useParams()
 
     useEffect(
@@ -24,6 +25,10 @@ function Zestaw(props) {
             getItemHook("Zestawy", productName, set_item_details) 
         },
     [productName])
+
+    const createGrawerValue = (e) => {
+        setgrawer( e.target.value )
+    }
 
     console.log(color,quantity, sizesObroza, sizesSmycz)
 
@@ -76,6 +81,14 @@ function Zestaw(props) {
             />
             <label>
                 <h3>
+                    Grawer na obroży
+                </h3>
+            </label>
+            <div className="adresatka_content" >
+                <textarea type="text" name="grawer" value={grawer} onChange={ createGrawerValue } ></textarea>
+            </div>
+            <label>
+                <h3>
                     Wybierz kolor
                 </h3>
             </label>
@@ -89,16 +102,25 @@ function Zestaw(props) {
             <span className="button_add_to_cart" >
                 <Button>
                         <button 
-                        onClick={ () => props.product_to_cart({
-                            name:item_details[0].fields.nazwa,
-                            image: item_details[0].fields.zdjecie.fields.file.url,
-                            sizes:{w: sizesObroza[1], l: sizesObroza[0]},
-                            sizes2:{w: sizesSmycz[1], l: sizesSmycz[0]},
-                            quantity: quantity,
-                            price: countPrice(item_details[0].fields.cena, sizesObroza[0], +sizesSmycz[1]),
-                            color: color,
-                            identifier: Date.now()
-                        })}>
+                        onClick={ () => {
+                            if( quantity === 0 || sizesObroza.length <= 0 || sizesSmycz.length <= 0 || color === "" || grawer === "" ){
+                                alert('Zaznacz lub wypełnij wszystkie pola')
+                            }
+                            else{
+                                props.product_to_cart({
+                                    name:item_details[0].fields.nazwa,
+                                    image: item_details[0].fields.zdjecie.fields.file.url,
+                                    sizes:{w: sizesObroza[1], l: sizesObroza[0]},
+                                    sizes2:{w: sizesSmycz[1], l: sizesSmycz[0]},
+                                    quantity: quantity,
+                                    price: countPrice(item_details[0].fields.cena, sizesObroza[0], +sizesSmycz[1]),
+                                    color: color,
+                                    grawer: grawer,
+                                    identifier: Date.now()
+                                })
+                                alert('Dodałeś produkt!')
+                            }
+                        }}>
                             <p>Do koszyka</p>
                         </button>
                 </Button>

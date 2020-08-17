@@ -75,16 +75,24 @@ function SmyczDetail(props) {
             <span className="button_add_to_cart" >
                 <Button>
                         <button 
-                        onClick={ () => props.product_to_cart({
-                            name:item_details[0].fields.nazwa,
-                            image: item_details[0].fields.zdjecie.fields.file.url,
-                            sizes:{w: sizes[1], l: sizes[0]},
-                            sizes2: "null",
-                            quantity: quantity,
-                            price: countPrice(item_details[0].fields.cena, sizes[0], "empty"),
-                            color: color,
-                            identifier: Date.now()
-                        })}>
+                        onClick={ () => {
+                            if( quantity === 0 || color === "" || sizes.length <= 0 ){
+                                alert('Zaznacz lub wypełnij wszystkie pola')
+                            }
+                            else{
+                                props.product_to_cart({
+                                    name:item_details[0].fields.nazwa,
+                                    image: item_details[0].fields.zdjecie.fields.file.url,
+                                    sizes:{w: sizes[1], l: sizes[0]},
+                                    sizes2: "null",
+                                    quantity: quantity,
+                                    price: countPrice(item_details[0].fields.cena, 'empty', +sizes[1]),
+                                    color: color,
+                                    identifier: Date.now()
+                                })
+                                alert('Dodałeś produkt!')
+                            }
+                        }}>
                             <p>Do koszyka</p>
                         </button>
                 </Button>

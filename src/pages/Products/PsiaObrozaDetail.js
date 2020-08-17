@@ -16,6 +16,7 @@ function PsiaObrozaDetail(props) {
     const [quantity, setquantity] = useState(0)
     const [sizes, setSize] = useState([])
     const [color, setColor] = useState("")
+    const [grawer, setgrawer] = useState("")
     const {productName} = useParams()
     useEffect(
         () => {
@@ -23,7 +24,11 @@ function PsiaObrozaDetail(props) {
         },
     [productName])
 
-         console.log(item_details)
+    const createGrawerValue = (e) => {
+        setgrawer( e.target.value )
+    }
+
+         console.log(grawer)
 
     return (
         item_details.length > 0 ? 
@@ -68,6 +73,14 @@ function PsiaObrozaDetail(props) {
             <SetColors setColor={setColor} />
             <label>
                 <h3>
+                    Grawer na obroży
+                </h3>
+            </label>
+            <div className="adresatka_content" >
+                <textarea type="text" name="grawer" value={grawer} onChange={ createGrawerValue } ></textarea>
+            </div>
+            <label>
+                <h3>
                     Ilość
                 </h3>
             </label>
@@ -75,16 +88,26 @@ function PsiaObrozaDetail(props) {
             <span className="button_add_to_cart" >
                 <Button>
                     <button 
-                    onClick={ () => props.product_to_cart({
-                        name:item_details[0].fields.nazwa,
-                        image: item_details[0].fields.zdjecie.fields.file.url,
-                        sizes:{w: sizes[1], l: sizes[0]},
-                        sizes2: "null",
-                        quantity: quantity,
-                        price: countPrice(item_details[0].fields.cena, sizes[0], "empty"),
-                        color: color,
-                        identifier: Date.now()
-                    })}>
+                    onClick={ () => {
+                        if( quantity === 0 || color === "" || sizes.length <= 0 || grawer === "" ){
+                            alert('Zaznacz lub wypełnij wszystkie pola')
+                        }
+                        else{
+                            props.product_to_cart({
+                                name:item_details[0].fields.nazwa,
+                                image: item_details[0].fields.zdjecie.fields.file.url,
+                                sizes:{w: sizes[1], l: sizes[0]},
+                                sizes2: "null",
+                                quantity: quantity,
+                                price: countPrice(item_details[0].fields.cena, sizes[0], "empty"),
+                                color: color,
+                                grawer: grawer,
+                                identifier: Date.now() + Date.now()
+                            })
+                            alert('Dodałeś produkt!')
+                                
+                        }
+                    }}>
                         <p>Do koszyka</p>
                     </button>
                 </Button>
