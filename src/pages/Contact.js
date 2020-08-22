@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Button} from '../components/Button'
+import { validate } from 'validate.js';
 
 export default function Contact() {
 
@@ -43,15 +44,27 @@ export default function Contact() {
         }
     };
 
+    var constraints = {
+        from: {
+          email: true
+        }
+      };
+
+
    const reminder_of_agreement = (e) => {
-    if(checkbox1 === false){
-      alert("zaznacz zgodę!");
+    if(checkbox1 === false || email.length <= 0 || message.length <= 0 ){
+      alert("Wypełnij wszystkie pola i zaznacz zgodę!");
       e.preventDefault();
+      return;
     }
-    else{
-      handleSubmit(e)
+    else if( JSON.stringify(validate({from: email}, constraints)) !== undefined ){
+        alert('Email musi posiadać poprawny format!')
+        e.preventDefault();
+        return;
     }
+    handleSubmit(e);
    } 
+
 
     return (
         <div className="contact_container">
