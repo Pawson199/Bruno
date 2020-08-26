@@ -9,8 +9,6 @@ import {Link} from 'react-router-dom'
 
 function Cart(props) {
 
-    
-
 const deliviery_inpost = useRef()
 const deliviery_dpd = useRef()
 
@@ -89,12 +87,12 @@ const sum = () => {
                         <p><b>Produkty:</b> {sum()} PLN </p>
                             <div>
                                 <p><b>Metoda dostawy:</b> </p>
-                                <span>
-                                    <input onClick={ () => props.setdeliviery(13) } value="13" ref={deliviery_inpost} name="deliviery" type="radio"></input>
+                                <span onClick={ () => props.setdeliviery(13) } >
+                                    <input value="13" ref={deliviery_inpost} name="deliviery" type="radio"></input>
                                     <label><img alt="inpost_logo" src={inpost} /> 13 PLN</label>
                                 </span>
-                                <span>
-                                    <input onClick={ () => props.setdeliviery(16) } value="16" ref={deliviery_dpd} name="deliviery" type="radio"></input>
+                                <span onClick={ () => props.setdeliviery(16) } >
+                                    <input value="16" ref={deliviery_dpd} name="deliviery" type="radio"></input>
                                     <label><img alt="dpd_logo" src={dpd} /> 16 PLN </label>
                                 </span>
                             </div>

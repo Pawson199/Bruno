@@ -28,7 +28,6 @@ function PsiaObrozaDetail(props) {
         setgrawer( e.target.value )
     }
 
-         console.log(grawer)
 
     return (
         item_details.length > 0 ? 

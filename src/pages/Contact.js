@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import {Button} from '../components/Button'
 import { validate } from 'validate.js';
 
@@ -7,17 +7,19 @@ export default function Contact() {
     const [email, setEmail] = useState("")
     const [message, setMessage] = useState("")
     const [checkbox1, setcheckbox1] = useState(false)
-    
+
+    const ref = useRef()
+
     const encode = (data) => {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
             .join("&");
       }
 
-      const data = {
+    const data = {
           email: email,
           message: message
-      }
+    }
 
     const handleSubmit = (e) => {
         fetch("/", {
@@ -44,7 +46,7 @@ export default function Contact() {
         }
     };
 
-    var constraints = {
+    let constraints = {
         from: {
           email: true
         }
@@ -52,13 +54,20 @@ export default function Contact() {
 
 
    const reminder_of_agreement = (e) => {
+
+    [...ref.current].forEach( el =>
+        el.value === "" ? el.style.cssText = "border: 1px solid red" : el.style.cssText = ""
+    )
+
+    console.log([...ref.current])
+
     if(checkbox1 === false || email.length <= 0 || message.length <= 0 ){
       alert("Wypełnij wszystkie pola i zaznacz zgodę!");
       e.preventDefault();
       return;
     }
     else if( JSON.stringify(validate({from: email}, constraints)) !== undefined ){
-        alert('Email musi posiadać poprawny format!')
+        alert('Email musi posiadać poprawny format!');
         e.preventDefault();
         return;
     }
@@ -69,7 +78,7 @@ export default function Contact() {
     return (
         <div className="contact_container">
          <h1>Formularz kontaktowy</h1>
-         <form >
+         <form ref={ref} >
                     <p className="paragraph">
                         <label>E-mail <input type="email" value={email} onChange={handleChange}  name="email" /></label>
                     </p>
@@ -81,9 +90,9 @@ export default function Contact() {
                         92-601 Łódź w celu i w zakresie niezbędnym do realizacji obsługi niniejszego zgłoszenia.
                             Zapoznałem się z treścią informacji o sposobie przetwarzania moich danych osobowych jak w załączniku.
                         </p>
-                        <input type="checkbox" id="scales" name="scales" onChange={ (e) => e.target.checked ? setcheckbox1( true ) : setcheckbox1( false ) } />
+                        <input value={checkbox1} type="checkbox" id="scales" name="scales" onChange={ (e) => e.target.checked ? setcheckbox1( true ) : setcheckbox1( false ) } />
                     </div>
-                    <Button><button type="submit" onClick={ e => reminder_of_agreement(e) }><p >Wyślij</p></button></Button>
+                    <Button><button value="button" type="submit" onClick={ e => reminder_of_agreement(e) }><p >Wyślij</p></button></Button>
             </form>
         </div>
     )
