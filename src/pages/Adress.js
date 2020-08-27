@@ -11,8 +11,14 @@ function Adress(props) {
     const [surname, setsurname] = useState('')
     const [number, setnumber] = useState('')
     const [email, setemail] = useState('')
+    const [contry_code, setcontry_code] = useState('')
+    const [city, setcity] = useState('')
+    const [street, setstreet] = useState('')
+    const [home_number, sethome_number] = useState('')
 
-    const ref = useRef()
+    const ref1 = useRef()
+    const ref2 = useRef()
+    const checkbox = useRef()
 
     const handleChange = e => {
         switch(e.target.name){
@@ -25,27 +31,34 @@ function Adress(props) {
             case "surname" :
                 setsurname(e.target.value)
             break;
-            case "number" :
-                setnumber(e.target.value)
-            break;
+            case "number" : 
+            { 
+                let stringLength = 0
+                for( let i = 0; i < number.length; i++ ){
+                   if(number[i] !== '-') stringLength++
+                };
+                if( stringLength < 9 || number.length < 9) setnumber(  e.target.value.replace(' ','-') )
+                else setnumber( prev => prev.substring(0, number.length - 1) )
+                break;
+            }
             case "street" :
-                setnumber(e.target.value)
+                setstreet(e.target.value)
             break;
             case "home_number" :
-                setnumber(e.target.value)
+                sethome_number(e.target.value)
             break;
             case "city" :
-                setnumber(e.target.value)
+                setcity(e.target.value)
             break;
             case "country_code" :
-                setnumber(e.target.value)
+                setcontry_code(e.target.value)
             break;
             default:
               alert("no input found")
         }
     };
 
-    const checkFields = () => {
+    const checkFields = (useref) => {
 
         let constraints = {
             from: {
@@ -55,7 +68,7 @@ function Adress(props) {
 
         const regex = new RegExp('[0-9]{9}');
 
-        [...ref.current].forEach( el =>{
+        [...useref.current].forEach( el =>{
             if(el.value === "") el.style.cssText = "border: 1px solid red" 
 
             else if(el.name === 'email' && JSON.stringify(validate({from: el.value}, constraints)) !== undefined){
@@ -70,12 +83,17 @@ function Adress(props) {
 
         let isempty = false;
 
-        [name, surname, email].forEach( 
+       const choosedForm = props.choosed_deliviery === 13 ? 
+        [ name, surname, email ] 
+        :
+        [ name, surname, email, contry_code, city, street, home_number ]
+
+        choosedForm.forEach( 
             element => element.length === 0 ? isempty = true : null
         )
 
         if( isempty 
-            || paczkomat.length !== undefined 
+            || (paczkomat.length !== undefined && props.choosed_deliviery === 13) //this option is valid only for inpost deliviery
             || !regex.test(number) 
             || JSON.stringify(validate({from: email}, constraints)) !== undefined
             ){
@@ -83,7 +101,9 @@ function Adress(props) {
         }
 
         else{
-            alert("idziemy do płatności")
+            checkbox.current.checked ?
+            alert("Udało się! Teraz mógłbyś zapłacić, gdyby sklep był spięty z systemem płatności mobilnej. Mogłbyś, ale nie jest, więc trzeba jeszcze poczekać xD")
+            : alert('no spoczo, ale musisz zaznaczyc zgode')
         }
 
     }
@@ -118,10 +138,10 @@ function Adress(props) {
         <div className="summary_in_deliviery" >
             <h2><b>Do zapłaty:  </b>{price_off_all + props.choosed_deliviery}PLN</h2>
             <span>
-                <input type="checkbox"></input>
+                <input ref={checkbox} type="checkbox"></input>
                 <p><small>Akceptuję regulamin serwisu i zapoznałem/am się z informacjami dotyczącymi moich danych osobowych zamieszczonymi w polityce prywatności.</small></p>
             </span>
-            <Button><button onClick={ () => checkFields() } ><p>Płatność</p></button></Button>
+            <Button><button onClick={ () => checkFields(props.choosed_deliviery === 13 ? ref1 : ref2 ) } ><p>Płatność</p></button></Button>
         </div>
     )
 
@@ -133,7 +153,7 @@ function Adress(props) {
             </span>
             <span>
                     <label>Numer Telefonu</label>
-                    <input onChange={handleChange}  name="number" type="text" ></input>
+                    <input onChange={handleChange} value={number}  name="number" type="text" ></input>
             </span>
             <span>
                     <label>Imię</label>
@@ -153,7 +173,7 @@ function Adress(props) {
                 <div className="inpost_container" >
                     <h1>Dane do zamówienia</h1>
                     <div className="data_form" >
-                        <form ref={ref}>
+                        <form ref={ref1}>
                         {basic_form()}
                         <span>
                             <label>Paczkomat</label>
@@ -176,7 +196,7 @@ function Adress(props) {
                 <div className="dpd_container" >
                     <h1>Dane do zamówienia</h1>
                     <div className="data_form" >
-                        <form>
+                        <form ref={ref2} >
                         {basic_form()}
                             <span>
                                 <label>Ulica</label>
@@ -184,14 +204,14 @@ function Adress(props) {
                             </span>
                             <span >
                                 <label>Nr domu/lokalu</label>
-                                <input onChange={handleChange}  name="home_number" type="number" ></input>
+                                <input onChange={handleChange}  name="home_number" type="text" ></input>
                             </span>
                             <span>
                                 <label>Kod pocztowy</label>
                                 <input onChange={handleChange}  name="country_code" type="text" pattern="[0-9]{5}"></input>
                             </span>
                             <span>
-                                <label>Miasto</label>
+                                <label>Miasto/Wieś</label>
                                 <input onChange={handleChange}  name="city" type="text" ></input>
                             </span>
                         </form>
@@ -203,7 +223,7 @@ function Adress(props) {
         else{
             return(
              <div className="error_adres" >
-                <p> Najpierw wybierz metodę dostawy w swoim koszyku. </p>
+                <p className="error_adres_p" > Najpierw wybierz metodę dostawy w swoim koszyku. </p>
             </div>   
             )
         }

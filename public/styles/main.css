@@ -2360,6 +2360,11 @@ body, html {
   }
 }
 
+.inpost_container .error_adres_p, .dpd_container .error_adres_p, .error_adres .error_adres_p {
+  margin: auto;
+  width: 100%;
+}
+
 .inpost_container .data_form, .dpd_container .data_form, .error_adres .data_form {
   width: 100%;
 }
